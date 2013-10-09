@@ -45,7 +45,5 @@ public class SearchByKeywordStoryTest {
 		endUser.should_see_definition("An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem.");
     }
 
-    @Pending @Test
-    public void searching_by_ambiguious_keyword_should_display_the_disambiguation_page() {
-    }
+   
 } 

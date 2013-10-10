@@ -35,10 +35,25 @@ public class EndUserSteps extends ScenarioSteps {
     public void is_the_home_page() {
         dictionaryPage.open();
     }
+    
+    @Step
+    public void navigateToHomePage(){
+    	dictionaryPage.navigateToHomePage();
+    }
 
     @Step
     public void looks_for(String term) {
         enters(term);
         starts_search();
     }
+    
+    @Step
+	public void clickOnRegisterButton() {
+    	dictionaryPage.clickOnRegisterButton();
+	}
+    
+    @Step
+	public void clickForRegistering() {
+    	dictionaryPage.clickForRegistering();
+	}
 }

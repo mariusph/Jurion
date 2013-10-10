@@ -23,6 +23,12 @@ public class DictionaryPage extends PageObject {
 	@FindBy(name="go")
 	private WebElement lookupButton;
 	
+	@FindBy(css="div[class*='button register']")
+	private WebElement registerButton;
+	
+	@FindBy(css="div#form0-buttonnavigation-next-elem input")
+	private WebElement weiterButton;
+	
 	public DictionaryPage(WebDriver driver) {
 		super(driver);
 	}
@@ -48,6 +54,26 @@ public class DictionaryPage extends PageObject {
             }
         };
     }
+
+	public void navigateToHomePage() {
+		getDriver().get("https://www.jurion.de");
+	
+	}
+
+	public void clickOnRegisterButton() {
+		element(registerButton).waitUntilVisible();
+		waitABit(2000);
+		registerButton.sendKeys("");
+		registerButton.click();
+		waitABit(2000);
+	}
+
+	public void clickForRegistering() {
+		waitABit(2000);
+		element(registerButton).waitUntilVisible();
+		System.out.println("XXX XXX");
+		registerButton.click();
+	}
 }
 
 

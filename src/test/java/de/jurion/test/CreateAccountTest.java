@@ -21,7 +21,6 @@ public class CreateAccountTest extends BaseTest {
 	public void createNewAccount() {
 		endUser.clickOnRegisterButton();
 		endUser.clickForRegistering();
-
 	}
 
 }

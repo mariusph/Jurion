@@ -15,12 +15,12 @@ import de.jurion.steps.HomeSteps;
 public class CreateAccountTest extends BaseTest {
 
 	@Steps
-	public HomeSteps endUser;
+	public HomeSteps homeSteps;
 
 	@Test
 	public void createNewAccount() {
-		endUser.clickOnRegisterButton();
-		endUser.clickForRegistering();
+		homeSteps.clickOnRegisterButton();
+		homeSteps.clickForRegistering();
 	}
 
 }

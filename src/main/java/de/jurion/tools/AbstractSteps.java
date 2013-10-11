@@ -12,7 +12,7 @@ public class AbstractSteps extends ScenarioSteps {
 		super(pages);
 	}
 
-	public HomePage dictionaryPage() {
+	public HomePage homePage() {
 		return getPages().currentPageAt(HomePage.class);
 	}
 

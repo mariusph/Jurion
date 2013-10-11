@@ -16,7 +16,7 @@ public class HomePage extends AbstractPage {
 	private WebElement registerButton;
 
 	@FindBy(id = "next")
-	private WebElement weiterButton;
+	private WebElement startRegisteringButton;
 
 	public void clickOnRegisterButton() {
 		element(registerButton).waitUntilVisible();
@@ -24,7 +24,7 @@ public class HomePage extends AbstractPage {
 	}
 
 	public void clickForRegistering() {
-		element(weiterButton).waitUntilVisible();
-		weiterButton.click();
+		element(startRegisteringButton).waitUntilVisible();
+		startRegisteringButton.click();
 	}
 }

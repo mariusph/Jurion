@@ -14,11 +14,11 @@ public class HomeSteps extends AbstractSteps {
 
 	@Step
 	public void clickOnRegisterButton() {
-		dictionaryPage().clickOnRegisterButton();
+		homePage().clickOnRegisterButton();
 	}
 
 	@Step
 	public void clickForRegistering() {
-		dictionaryPage().clickForRegistering();
+		homePage().clickForRegistering();
 	}
 }

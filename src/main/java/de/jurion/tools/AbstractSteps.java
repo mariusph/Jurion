@@ -1,8 +1,10 @@
 package de.jurion.tools;
 
 import net.thucydides.core.pages.Pages;
+
 import net.thucydides.core.steps.ScenarioSteps;
 import de.jurion.pages.HomePage;
+import de.jurion.pages.RegistrierungStartenPage;
 
 public class AbstractSteps extends ScenarioSteps {
 
@@ -11,9 +13,14 @@ public class AbstractSteps extends ScenarioSteps {
 	public AbstractSteps(Pages pages) {
 		super(pages);
 	}
+	
 
 	public HomePage homePage() {
 		return getPages().currentPageAt(HomePage.class);
+	}
+	
+	public RegistrierungStartenPage registrierungStartenPage(){
+		return getPages().currentPageAt(RegistrierungStartenPage.class);
 	}
 
 }

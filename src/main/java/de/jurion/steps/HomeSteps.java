@@ -13,12 +13,13 @@ public class HomeSteps extends AbstractSteps {
 	}
 
 	@Step
-	public void clickOnRegisterButton() {
-		homePage().clickOnRegisterButton();
+	public void clickOnRegistrierenButton() {
+		homePage().clickOnRegistrierenButton();
+	}
+    
+	@Step
+	public void openHomePage() {
+		homePage().openHomePage();
 	}
 
-	@Step
-	public void clickForRegistering() {
-		homePage().clickForRegistering();
-	}
 }

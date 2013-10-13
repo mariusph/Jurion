@@ -21,7 +21,6 @@ public class HomePage extends AbstractPage {
 
 	public void clickOnRegistrierenButton() {
 		element(registrierenContainer).waitUntilPresent();
-		System.out.println("XXX "+registrierenContainer.getTagName());
 		element(registrierenButton).waitUntilVisible();
 		registrierenButton.click();
 	}

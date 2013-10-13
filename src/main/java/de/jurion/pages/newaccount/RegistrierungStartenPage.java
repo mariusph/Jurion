@@ -1,4 +1,4 @@
-package de.jurion.pages;
+package de.jurion.pages.newaccount;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

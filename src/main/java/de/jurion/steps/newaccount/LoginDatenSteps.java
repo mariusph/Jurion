@@ -1,4 +1,4 @@
-package de.jurion.steps;
+package de.jurion.steps.newaccount;
 
 import net.thucydides.core.pages.Pages;
 import de.jurion.tools.AbstractSteps;

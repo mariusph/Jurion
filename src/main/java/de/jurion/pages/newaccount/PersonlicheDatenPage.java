@@ -1,4 +1,4 @@
-package de.jurion.pages;
+package de.jurion.pages.newaccount;
 
 import net.thucydides.core.annotations.findby.FindBy;
 

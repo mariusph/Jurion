@@ -4,9 +4,9 @@ import net.thucydides.core.pages.Pages;
 
 import net.thucydides.core.steps.ScenarioSteps;
 import de.jurion.pages.HomePage;
-import de.jurion.pages.LoginDatenPage;
-import de.jurion.pages.PersonlicheDatenPage;
-import de.jurion.pages.RegistrierungStartenPage;
+import de.jurion.pages.newaccount.LoginDatenPage;
+import de.jurion.pages.newaccount.PersonlicheDatenPage;
+import de.jurion.pages.newaccount.RegistrierungStartenPage;
 
 public class AbstractSteps extends ScenarioSteps {
 

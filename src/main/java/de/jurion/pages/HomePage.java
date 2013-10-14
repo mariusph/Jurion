@@ -11,20 +11,19 @@ public class HomePage extends AbstractPage {
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
+	
+	@FindBy(id = "account-handling")
+	private WebElement registrierenContainer;
 
 	@FindBy(css = "div.button.register-handler a")
-	private WebElement registerButton;
+	private WebElement registrierenButton;
 
-	@FindBy(id = "next")
-	private WebElement weiterButton;
 
-	public void clickOnRegisterButton() {
-		element(registerButton).waitUntilVisible();
-		registerButton.click();
+	public void clickOnRegistrierenButton() {
+		element(registrierenContainer).waitUntilPresent();
+		element(registrierenButton).waitUntilVisible();
+		registrierenButton.click();
 	}
+	
 
-	public void clickForRegistering() {
-		element(weiterButton).waitUntilVisible();
-		weiterButton.click();
-	}
 }

@@ -86,7 +86,7 @@
 					<systemPropertyVariables>
 						<webdriver.chrome.driver>${basedir}\src\test\java\de\jurion\resources\chromedriver.exe</webdriver.chrome.driver>
 						<webdriver.ie.driver>${basedir}\src\test\java\de\jurion\resources\IEDriverServer.exe</webdriver.ie.driver>
-						<webdriver.base.url>http://www.jurion.de</webdriver.base.url>
+						<webdriver.base.url>http://staging.jurion.de</webdriver.base.url>
 						<webdriver.driver>${webdriver.driver}</webdriver.driver>
 					</systemPropertyVariables>
 				</configuration>

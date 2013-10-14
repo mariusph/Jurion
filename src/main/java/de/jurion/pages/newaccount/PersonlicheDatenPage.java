@@ -2,6 +2,7 @@ package de.jurion.pages.newaccount;
 
 import net.thucydides.core.annotations.findby.FindBy;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -50,8 +51,11 @@ public class PersonlicheDatenPage  extends AbstractPage{
 	@FindBy(css = "input#phone")
 	private WebElement phoneInput;
 	
-	@FindBy(css = "div#form0-buttonnavigation-next-elem input")
-	private WebElement weiterButton;
+	@FindBy(css = "fieldset#fieldset-form1 dd#buttonnavigation-element")
+	private WebElement weiterButtonContainer;
+	
+//	@FindBy(css = "div#form0-buttonnavigation-next-elem")
+//	private WebElement weiterButton;
 
 	public void fillInstitutionName(String institution) {
 		element(institutionInput).waitUntilVisible();
@@ -114,8 +118,9 @@ public class PersonlicheDatenPage  extends AbstractPage{
 	}
 
 	public void clickOnWeiterButton() {
-		element(emailInput).waitUntilVisible();
-		emailInput.click();
+		element(weiterButtonContainer).waitUntilVisible();
+		WebElement button= weiterButtonContainer.findElement(By.id("next"));
+		button.click();
 	}
 
 }

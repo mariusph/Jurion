@@ -16,6 +16,7 @@ import com.gargoylesoftware.htmlunit.util.StringUtils;
 import de.jurion.model.CustomerModel;
 import de.jurion.requirements.Application;
 import de.jurion.steps.HomeSteps;
+import de.jurion.steps.newaccount.LoginDatenSteps;
 import de.jurion.steps.newaccount.PersonlicheDatenSteps;
 import de.jurion.steps.newaccount.RegistrierungStartenSteps;
 import de.jurion.tools.ConfigFileLibrary;
@@ -39,6 +40,7 @@ public class CreateAccountTest extends BaseTest {
 	private String city;
 	private String email;
 	private String phone;
+	private String username;
 	
 	public void setInstitution(String institution) {
 		this.institution = institution;
@@ -115,6 +117,9 @@ public class CreateAccountTest extends BaseTest {
 	
 	@Steps
 	public PersonlicheDatenSteps personlicheDatenSteps;
+	
+	@Steps
+	public LoginDatenSteps loginDatenSteps;
 
 	@Test
 	public void createNewAccount() {
@@ -128,12 +133,15 @@ public class CreateAccountTest extends BaseTest {
 		registrierungStartenSteps.clickOnWeiterButton();
 		
 		// fill the data
-//		personlicheDatenSteps.fillTheDataForm(customerModel.getInstitution());
 		email= RandomStringUtils.randomAlphanumeric(5)+ email;
 		personlicheDatenSteps.fillTheDataForm(institution,
 				CustomerLabels.GENDER_MALE, CustomerLabels.ACADEMIC_PROF_DR,
 				firstname, lastname, address, plz, city, CustomerLabels.COUNTRY,
 				email, phone, CustomerLabels.PROFESSION);
+		
+		// login credentials
+		loginDatenSteps.getTheUsername();
+		String username = loginDatenSteps.getTheUsername();
 
 	}
 

@@ -8,22 +8,20 @@ import de.jurion.tools.AbstractPage;
 
 public class HomePage extends AbstractPage {
 
-	public HomePage(WebDriver driver) {
-		super(driver);
-	}
-	
-	@FindBy(id = "account-handling")
-	private WebElement registrierenContainer;
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
 
-	@FindBy(css = "div.button.register-handler a")
-	private WebElement registrierenButton;
+    @FindBy(id = "account-handling")
+    private WebElement registrierenContainer;
 
+    @FindBy(css = "div.button.register-handler a")
+    private WebElement registrierenButton;
 
-	public void clickOnRegistrierenButton() {
-		element(registrierenContainer).waitUntilPresent();
-		element(registrierenButton).waitUntilVisible();
-		registrierenButton.click();
-	}
-	
+    public void clickOnRegistrierenButton() {
+        element(registrierenContainer).waitUntilPresent();
+        element(registrierenButton).waitUntilVisible();
+        registrierenButton.click();
+    }
 
 }

@@ -1,7 +1,5 @@
 package de.jurion.test;
 
-import java.util.Random;
-
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.junit.annotations.UseTestDataFrom;
@@ -11,9 +9,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.gargoylesoftware.htmlunit.util.StringUtils;
-
-import de.jurion.model.CustomerModel;
 import de.jurion.requirements.Application;
 import de.jurion.steps.HomeSteps;
 import de.jurion.steps.newaccount.LoginDatenSteps;
@@ -30,7 +25,7 @@ separator = Constants.CSV_SEPARATOR)
 
 public class CreateAccountTest extends BaseTest {
 	
-//	private CustomerModel customerModel;
+    // private CustomerModel customerModel;
 	
 	private String institution;
 	private String firstname;

@@ -11,15 +11,15 @@ import de.jurion.tools.Constants;
 
 public class BaseTest {
 
-	@Managed(uniqueSession = true)
-	public WebDriver webdriver;
+    @Managed(uniqueSession = true)
+    public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = Constants.BASE_URL)
-	public Pages pages;
+    @ManagedPages(defaultUrl = Constants.BASE_URL)
+    public Pages pages;
 
-	@After
-	public void closeSelenium() {
-		webdriver.close();
-		webdriver.quit();
-	}
+    @After
+    public void closeSelenium() {
+        webdriver.close();
+        webdriver.quit();
+    }
 }

@@ -12,12 +12,12 @@ public class LoginDatenPage extends AbstractPage {
         super(driver);
     }
 
-	@FindBy(css = "input#username")
-	private WebElement nutzname;
+    @FindBy(css = "input#username")
+    private WebElement nutzname;
 
-	public String getTheUsername() {
-		element(nutzname).waitUntilVisible();
-		return nutzname.getAttribute("value");
-	}
+    public String getTheUsername() {
+        element(nutzname).waitUntilVisible();
+        return nutzname.getAttribute("value");
+    }
 
 }

@@ -6,18 +6,18 @@ import org.openqa.selenium.support.FindBy;
 
 import de.jurion.tools.AbstractPage;
 
-public class RegistrierungStartenPage  extends AbstractPage{
+public class RegistrierungStartenPage extends AbstractPage {
 
-	public RegistrierungStartenPage(WebDriver driver) {
-		super(driver);
-	}
-	
-	@FindBy(id = "next")
-	private WebElement weiterButton;
+    public RegistrierungStartenPage(WebDriver driver) {
+        super(driver);
+    }
 
-	public void clickOnWeiterButton() {
-			element(weiterButton).waitUntilVisible();
-			weiterButton.click();
-	}
+    @FindBy(id = "next")
+    private WebElement weiterButton;
+
+    public void clickOnWeiterButton() {
+        element(weiterButton).waitUntilVisible();
+        weiterButton.click();
+    }
 
 }

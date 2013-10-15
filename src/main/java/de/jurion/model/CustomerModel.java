@@ -1,7 +1,7 @@
 package de.jurion.model;
 
 public class CustomerModel {
-	
+
 	private String institution;
 	private String emailAddress;
 

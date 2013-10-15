@@ -6,19 +6,18 @@ import org.openqa.selenium.support.FindBy;
 
 import de.jurion.tools.AbstractPage;
 
-public class LoginDatenPage extends AbstractPage{
+public class LoginDatenPage extends AbstractPage {
 
-	public LoginDatenPage(WebDriver driver) {
-		super(driver);
-	}
-	
+    public LoginDatenPage(WebDriver driver) {
+        super(driver);
+    }
+
 	@FindBy(css = "input#username")
 	private WebElement nutzname;
 
 	public String getTheUsername() {
 		element(nutzname).waitUntilVisible();
-		String id=nutzname.getAttribute("value");
-		return id;
+		return nutzname.getAttribute("value");
 	}
 
 }

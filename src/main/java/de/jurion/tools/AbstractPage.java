@@ -10,13 +10,14 @@ import org.openqa.selenium.interactions.Actions;
 
 public class AbstractPage extends PageObject {
 
-	public AbstractPage(WebDriver driver) {
-		super(driver);
-	}
-	
-	public void openHomePage(){
-		 open();
-	}
+    public AbstractPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public void openHomePage() {
+        open();
+    }
+
 	public void switchToIframe(WebElement... iframes) {
 		getDriver().switchTo().defaultContent();
 		for (WebElement iframe : iframes) {

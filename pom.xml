@@ -18,6 +18,7 @@
 		<junit.version>4.11</junit.version>
 		<maven-surefire.plugin>2.7.1</maven-surefire.plugin>
 		<selenium.version>2.35.0</selenium.version>
+		<sonar.language>java</sonar.language>
 	</properties>
 
 	<dependencies>

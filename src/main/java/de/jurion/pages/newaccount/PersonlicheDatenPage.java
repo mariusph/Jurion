@@ -7,9 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import de.jurion.tools.AbstractPage;
-import de.jurion.tools.Constants;
 
-public class PersonlicheDatenPage  extends AbstractPage{
+public class PersonlicheDatenPage extends AbstractPage{
 
 	public PersonlicheDatenPage(WebDriver driver) {
 		super(driver);

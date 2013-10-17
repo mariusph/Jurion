@@ -53,9 +53,6 @@ public class PersonlicheDatenPage extends AbstractPage {
     @FindBy(css = "fieldset#fieldset-form1 dd#buttonnavigation-element")
     private WebElement weiterButtonContainer;
 
-    // @FindBy(css = "div#form0-buttonnavigation-next-elem")
-    // private WebElement weiterButton;
-
     public void fillInstitutionName(String institution) {
         element(institutionInput).waitUntilVisible();
         institutionInput.sendKeys(institution);

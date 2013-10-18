@@ -10,5 +10,6 @@ public class CustomerLabels {
     public static final String ACADEMIC_PROF_DR = "Prof. Dr.";
     public static final String COUNTRY = "Belize";
     public static final String PROFESSION = "Steuerfachangestellter";
+    public static final String INTERNATIONAL_RIGHT_SUBDOMAIN= "Insolvenzrecht";
 
 }

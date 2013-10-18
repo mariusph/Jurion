@@ -1,2 +1,2 @@
-Institution,Firstname,Lastname,Address,Plz,City,Email,Phone,
-Dummy Institution,Schmidt,Johann,Amerikanische Strasse 155,40320,Hamburg,@example.com,0044744166354,
+Institution,Firstname,Lastname,Address,Plz,City,Email,Phone,Password,
+Dummy Institution,Schmidt,Johann,Amerikanische Strasse 155,40320,Hamburg,@example.com,0044744166354,pass12345,

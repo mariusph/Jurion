@@ -35,7 +35,7 @@ public class CreateAccountTest extends BaseTest {
 	private String city;
 	private String email;
 	private String phone;
-	private String username;
+	private String password;
 	
 	public void setInstitution(String institution) {
 		this.institution = institution;
@@ -99,6 +99,14 @@ public class CreateAccountTest extends BaseTest {
 		this.phone = phone;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
@@ -137,6 +145,11 @@ public class CreateAccountTest extends BaseTest {
 		// login credentials
 		loginDatenSteps.getTheUsername();
 		String username = loginDatenSteps.getTheUsername();
+		
+		loginDatenSteps.fillPasswords(password);
+		
+		loginDatenSteps.expandDomainArrow();
+		loginDatenSteps.clickOnInsolventzRechtCheckbox();
 
 	}
 

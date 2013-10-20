@@ -40,5 +40,24 @@ public class AbstractPage extends PageObject {
         Actions action = new Actions(getDriver());
         action.doubleClick(element).perform();
     }
+    
+    public void simpleClick(WebElement element) {
+        Actions action = new Actions(getDriver());
+        action.click(element).perform();
+    }
+    
+    public void elementFocus(String element) {
+		evaluateJavascript("var element =jQuery(' " + element
+				+ " ');element.focus();");
+	}
+
+	public void elementjQueryClick(String element) {
+		evaluateJavascript("var dd =jQuery(' " + element
+				+ " ').eq(0);dd.click(); ");
+	}
+	
+	public void scrollToPageBottom() {
+		evaluateJavascript("window.scrollTo(0,document.body.scrollHeight);");
+	}
 
 }

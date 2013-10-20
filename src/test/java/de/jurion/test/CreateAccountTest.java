@@ -150,6 +150,10 @@ public class CreateAccountTest extends BaseTest {
 		
 		loginDatenSteps.expandDomainArrow();
 		loginDatenSteps.clickOnInsolventzRechtCheckbox();
+		loginDatenSteps.closeDomainArrow();
+		
+		loginDatenSteps.getProfessionalList();
+		loginDatenSteps.clickOnWeiterButton();
 
 	}
 

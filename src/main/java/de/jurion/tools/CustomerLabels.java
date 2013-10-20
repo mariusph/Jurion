@@ -11,5 +11,6 @@ public class CustomerLabels {
     public static final String COUNTRY = "Belize";
     public static final String PROFESSION = "Steuerfachangestellter";
     public static final String INTERNATIONAL_RIGHT_SUBDOMAIN= "Insolvenzrecht";
+    public static final String INTERNATIONAL_RIGHT_SUBDOMAIN_0= "Bankrecht, Darlehens- & Bürgschaftsrecht";
 
 }

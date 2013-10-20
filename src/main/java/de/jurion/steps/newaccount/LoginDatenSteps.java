@@ -1,5 +1,7 @@
 package de.jurion.steps.newaccount;
 
+import java.util.List;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.pages.Pages;
@@ -39,9 +41,28 @@ public class LoginDatenSteps extends AbstractSteps {
     	loginDatenPage().expandDomainArrow();
 	}
     
-    @Step
+    @StepGroup
 	public void clickOnInsolventzRechtCheckbox() {
     	loginDatenPage().clickOnInsolventzRechtCheckbox();
+    	verifyThatTheCheckBoxCounterIsIcremented();
+	}
+    @Step
+    public int verifyThatTheCheckBoxCounterIsIcremented(){
+    	return loginDatenPage().verifyThatTheCheckBoxCounterIsIcremented();
+    }
+    
+    @Step
+    public void clickOnWeiterButton() {
+    	loginDatenPage().clickOnWeiterButton();
+    }
+    
+    @Step
+	public void closeDomainArrow() {
+    	loginDatenPage().closeDomainArrow();
+	}
+    @Step
+	public List<String> getProfessionalList() {
+    	return loginDatenPage().getProfessionalList();
 	}
 
 }

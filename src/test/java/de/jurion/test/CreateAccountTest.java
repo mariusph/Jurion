@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 
 import de.jurion.requirements.Application;
 import de.jurion.steps.HomeSteps;
+import de.jurion.steps.newaccount.BestatigenSteps;
 import de.jurion.steps.newaccount.LoginDatenSteps;
 import de.jurion.steps.newaccount.PersonlicheDatenSteps;
 import de.jurion.steps.newaccount.RegistrierungStartenSteps;
@@ -123,6 +124,9 @@ public class CreateAccountTest extends BaseTest {
 	
 	@Steps
 	public LoginDatenSteps loginDatenSteps;
+	
+	@Steps
+	public BestatigenSteps bestatigenSteps;
 
 	@Test
 	public void createNewAccount() {
@@ -154,6 +158,9 @@ public class CreateAccountTest extends BaseTest {
 		
 		loginDatenSteps.getProfessionalList();
 		loginDatenSteps.clickOnWeiterButton();
+		
+		// verify customer's info's
+		bestatigenSteps.verifyProfessionalList();
 
 	}
 

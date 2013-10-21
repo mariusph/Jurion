@@ -4,6 +4,7 @@ import net.thucydides.core.pages.Pages;
 
 import net.thucydides.core.steps.ScenarioSteps;
 import de.jurion.pages.HomePage;
+import de.jurion.pages.newaccount.BestatigenPage;
 import de.jurion.pages.newaccount.LoginDatenPage;
 import de.jurion.pages.newaccount.PersonlicheDatenPage;
 import de.jurion.pages.newaccount.RegistrierungStartenPage;
@@ -30,6 +31,10 @@ public class AbstractSteps extends ScenarioSteps {
 
     public LoginDatenPage loginDatenPage() {
         return getPages().currentPageAt(LoginDatenPage.class);
+    }
+    
+    public BestatigenPage bestatigenPage(){
+    	return getPages().currentPageAt(BestatigenPage.class);
     }
 
 }

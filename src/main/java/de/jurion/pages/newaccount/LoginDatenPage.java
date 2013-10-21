@@ -102,18 +102,21 @@ public class LoginDatenPage extends AbstractPage {
 
 	public List<String> getProfessionalList() {
 		List<String> list = new ArrayList<String>();
-//		element(wirkungskreisCheckBoxesContainer).waitUntilVisible();
 		List<WebElement> listElements =  wirkungskreisCheckBoxesContainer.findElements(By.cssSelector("label[class='grouped bold']"));
 		
 		System.out.println("The list length is "+listElements.size());
 		for(WebElement elem:listElements){
-		
 			list.add(elem.getText());
 			System.out.println("XXX "+elem.getText());
 		}
-		
-		return list;
-		
+		List<String> list2 = new ArrayList<String>();
+		list.remove(listElements.size()-listElements.size());
+		System.out.println("The new list's length is "+list.size());
+		for(String elem:list){
+			list2.add(elem);
+			System.out.println("ZZZ "+elem);
+		}
+		return list2;
 	}
 
 }

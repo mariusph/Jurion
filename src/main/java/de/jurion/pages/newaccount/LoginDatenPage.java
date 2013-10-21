@@ -48,7 +48,7 @@ public class LoginDatenPage extends AbstractPage {
     @FindBy(css = "fieldset#fieldset-form2 dd#buttonnavigation-element")
     private WebElement weiterButtonContainer;
     
-    @FindBy(css = "dd#spheres-element div[id*='form2-spheres-sphere0']")
+    @FindBy(id = "fieldset-spheres")
     private WebElement wirkungskreisCheckBoxesContainer;
 
     public String getTheUsername() {
@@ -103,9 +103,9 @@ public class LoginDatenPage extends AbstractPage {
 	public List<String> getProfessionalList() {
 		List<String> list = new ArrayList<String>();
 //		element(wirkungskreisCheckBoxesContainer).waitUntilVisible();
-		List<WebElement> listElements =  wirkungskreisCheckBoxesContainer.findElements(By.cssSelector("[class*='bold']"));
+		List<WebElement> listElements =  wirkungskreisCheckBoxesContainer.findElements(By.cssSelector("label[class='grouped bold']"));
 		
-	
+		System.out.println("The list length is "+listElements.size());
 		for(WebElement elem:listElements){
 		
 			list.add(elem.getText());

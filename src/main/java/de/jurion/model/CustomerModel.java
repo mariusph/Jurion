@@ -17,6 +17,7 @@ public class CustomerModel {
         return institution;
     }
 
+    
     public void setInstitution(String institution) {
         this.institution = institution;
     }

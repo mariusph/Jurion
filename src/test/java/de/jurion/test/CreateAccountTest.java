@@ -25,8 +25,6 @@ import de.jurion.tools.CustomerLabels;
         + ConfigFileLibrary.CREATE_CUSTOMER, separator = Constants.CSV_SEPARATOR)
 public class CreateAccountTest extends BaseTest {
 
-    // private CustomerModel customerModel;
-
     private String institution;
     private String firstname;
     private String lastname;

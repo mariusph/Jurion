@@ -1,7 +1,10 @@
 package de.jurion.test;
 
+import java.util.List;
+
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
+import net.thucydides.junit.annotations.Qualifier;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
@@ -34,6 +37,11 @@ public class CreateAccountTest extends BaseTest {
     private String email;
     private String phone;
     private String password;
+    
+    @Qualifier
+	public String getQualifier(){
+		return lastname +" "+ firstname;
+	}
 
     public void setInstitution(String institution) {
         this.institution = institution;
@@ -152,11 +160,20 @@ public class CreateAccountTest extends BaseTest {
         loginDatenSteps.closeDomainArrow();
 
         loginDatenSteps.getProfessionalList();
+        List<String> list1 = loginDatenSteps.getProfessionalList();
         loginDatenSteps.clickOnWeiterButton();
 
         // verify customer's info's
+        // check email
+        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.EMAIL_ADDRESS_LABEL, email);
+        // verify the telephone
+        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.PHONE_LABEL, phone);
         bestatigenSteps.verifyProfessionalList();
-
+        List<String> list2 = bestatigenSteps.verifyProfessionalList();
+        // chack that the lists are the same
+        bestatigenSteps.compareTheProfessionalLists(list1,list2);
+        
+        
     }
 
 }

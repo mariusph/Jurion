@@ -2,7 +2,10 @@ package de.jurion.steps.newaccount;
 
 import java.util.List;
 
+import org.junit.Assert;
+
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.pages.Pages;
 import de.jurion.tools.AbstractSteps;
 
@@ -17,6 +20,24 @@ public class BestatigenSteps extends AbstractSteps {
     @Step
     public List<String> verifyProfessionalList() {
         return bestatigenPage().verifyProfessionalList();
+    }
+    
+    @Step
+	public void compareTheProfessionalLists(List<String> list1,List<String> list2) {
+		Assert.assertTrue(
+				"The first list is : " + list1
+						+ " is not the same with : "
+						+ list2, list1.equals(list2));
+	}
+    
+    @Step
+    public void verifyCustomersLabelAndValue(String label, String value){
+    	bestatigenPage().verifyCustomersLabelAndValue(label, value);
+    }
+    
+    @StepGroup
+    public void verifyCustomersInformations(){
+    	
     }
 
 }

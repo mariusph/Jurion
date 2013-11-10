@@ -12,6 +12,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import de.jurion.model.CustomerModel;
 import de.jurion.requirements.Application;
 import de.jurion.steps.HomeSteps;
 import de.jurion.steps.newaccount.BestatigenSteps;
@@ -143,6 +144,7 @@ public class CreateAccountTest extends BaseTest {
 
         // fill the data
         email = RandomStringUtils.randomAlphanumeric(5) + email;
+        firstname = RandomStringUtils.randomAlphabetic(5) + firstname;
         personlicheDatenSteps
                 .fillTheDataForm(institution, CustomerLabels.GENDER_MALE,
                         CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname,
@@ -168,10 +170,33 @@ public class CreateAccountTest extends BaseTest {
         bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.EMAIL_ADDRESS_LABEL, email);
         // verify the telephone
         bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.PHONE_LABEL, phone);
-        bestatigenSteps.verifyProfessionalList();
+        // verify the profession
+        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.PROFESSION_TITLE_LABEL, CustomerLabels.PROFESSION);
+        // verify the address details
+		bestatigenSteps.verifyCustomerLabelAndMultipleValues(
+						CustomerLabels.ADDRESS_TITLE_LABEL, institution,
+						CustomerLabels.GENDER_MALE,
+						CustomerLabels.ACADEMIC_PROF_DR, lastname, firstname,
+						address, plz, city, CustomerLabels.COUNTRY);
+       // verify the username
+		bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.USERNAME_TITLE_LABEL, username);
+		// verify the field of interest
+		bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.INTERNATIONAL_LAW_TITLE_LABEL, CustomerLabels.INTERNATIONAL_LAW_SUBDOMAIN);
+		// verify the geographic area of interest
+		bestatigenSteps.verifyProfessionalList();
         List<String> list2 = bestatigenSteps.verifyProfessionalList();
         // chack that the lists are the same
         bestatigenSteps.compareTheProfessionalLists(list1,list2);
+        
+        // click on agree terms checkbox
+        bestatigenSteps.clickOnAgreeTermsCheckbox();
+        
+        // click on submitt button
+        bestatigenSteps.clickOnAbsendenButton();
+        
+        // check the confirmation message for registration
+        bestatigenSteps.checkTheRegistrationMessage();
+        
         
         
     }

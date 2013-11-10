@@ -34,10 +34,36 @@ public class BestatigenSteps extends AbstractSteps {
     public void verifyCustomersLabelAndValue(String label, String value){
     	bestatigenPage().verifyCustomersLabelAndValue(label, value);
     }
-    
+   
     @StepGroup
-    public void verifyCustomersInformations(){
+	public void verifyCustomerLabelAndMultipleValues(String addressTitleLabel,
+			String ...addressValues) {
+		for(String value:addressValues){
+    	verifyCustomerLabelAndMultipleValues(addressTitleLabel,value);	
+		}
+	}
+    
+    @Step
+    public void verifyCustomerLabelAndMultipleValues(String addressTitleLabel,String value){
+    	bestatigenPage().verifyCustomerLabelAndMultipleValues(addressTitleLabel,value);
     	
     }
+    
+    @Step
+    public void clickOnAbsendenButton() {
+    	bestatigenPage().clickOnAbsendenButton();
+    	
+    }
+    
+    @Step
+	public void clickOnAgreeTermsCheckbox() {
+    	bestatigenPage().clickOnAgreeTermsCheckbox();
+	}
+    
+    @Step
+	public void checkTheRegistrationMessage() {
+		bestatigenPage().checkTheRegistrationMessage();
+	}
+    
 
 }

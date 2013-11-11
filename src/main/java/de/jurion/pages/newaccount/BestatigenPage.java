@@ -31,6 +31,9 @@ public class BestatigenPage extends AbstractPage{
     @FindBy(css = "div#form3-confirm_terms-elem")
     private WebElement agreeTermsCheckboxContainer;
     
+    @FindBy(id = "confirm_terms")
+    private WebElement agreeTermsCheckbox;
+    
     @FindBy(id = "confirm-container")
     private WebElement confirmationMessageContainer;
 
@@ -92,11 +95,9 @@ public class BestatigenPage extends AbstractPage{
 	    }
 
 	public void clickOnAgreeTermsCheckbox() {
-		element(agreeTermsCheckboxContainer).waitUntilVisible();
-//        WebElement checkbox = agreeTermsCheckboxContainer.findElement(By.cssSelector("input#confirm_terms"));
-//        checkbox.sendKeys("");
-//        checkbox.click();
-        elementjQueryClick("input#confirm_terms");
+		element(agreeTermsCheckbox).waitUntilVisible();
+		agreeTermsCheckbox.click();
+
 	}
 
 	public void checkTheRegistrationMessage() {

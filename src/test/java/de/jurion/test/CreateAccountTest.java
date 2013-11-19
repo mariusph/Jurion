@@ -12,7 +12,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import de.jurion.model.CustomerModel;
 import de.jurion.requirements.Application;
 import de.jurion.steps.HomeSteps;
 import de.jurion.steps.newaccount.BestatigenSteps;

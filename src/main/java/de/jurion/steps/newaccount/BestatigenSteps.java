@@ -2,11 +2,12 @@ package de.jurion.steps.newaccount;
 
 import java.util.List;
 
-import org.junit.Assert;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.pages.Pages;
+
+import org.junit.Assert;
+
 import de.jurion.tools.AbstractSteps;
 
 public class BestatigenSteps extends AbstractSteps {

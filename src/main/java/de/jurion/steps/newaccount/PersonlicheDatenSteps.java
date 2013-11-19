@@ -3,7 +3,9 @@ package de.jurion.steps.newaccount;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.pages.Pages;
+import de.jurion.model.CustomerModel;
 import de.jurion.tools.AbstractSteps;
+import de.jurion.tools.CustomerLabels;
 
 public class PersonlicheDatenSteps extends AbstractSteps {
 
@@ -30,6 +32,24 @@ public class PersonlicheDatenSteps extends AbstractSteps {
         fillEmailAdresse(email);
         fillTelefon(phone);
         selectBerufDropdown(profession);
+        clickOnWeiterButton();
+    }
+
+    // using model
+    @StepGroup
+    public void fillTheDataForm(CustomerModel customer) {
+        fillInstitutionName(customer.getInstitution());
+        selectFromAnredeDropdown(CustomerLabels.GENDER_MALE);
+        selectAcademicTitleDropdown(CustomerLabels.ACADEMIC_PROF_DR);
+        fillVorname(customer.getFirstname());
+        fillNachName(customer.getLastname());
+        fillAddress(customer.getAddress());
+        fillPlz(customer.getPlz());
+        fillOrt(customer.getCity());
+        selectLandDropdown(CustomerLabels.COUNTRY);
+        fillEmailAdresse(customer.getEmail());
+        fillTelefon(customer.getPhone());
+        selectBerufDropdown(CustomerLabels.PROFESSION);
         clickOnWeiterButton();
     }
 

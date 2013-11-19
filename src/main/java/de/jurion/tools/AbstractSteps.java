@@ -1,7 +1,6 @@
 package de.jurion.tools;
 
 import net.thucydides.core.pages.Pages;
-
 import net.thucydides.core.steps.ScenarioSteps;
 import de.jurion.pages.HomePage;
 import de.jurion.pages.newaccount.BestatigenPage;

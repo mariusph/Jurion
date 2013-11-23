@@ -77,7 +77,7 @@ public class LoginDatenPage extends AbstractPage {
 		element(insolvenzrechtCheckbox).waitUntilVisible();
 		
 		if(wirtschaftrechtCheckboxContainer.getText().contains(CustomerLabels.INTERNATIONAL_LAW_SUBDOMAIN)){
-			elementjQueryClick("#taxonomy6_3");
+			insolvenzrechtCheckbox.sendKeys(Keys.SPACE);
 		}	
 	}
 	

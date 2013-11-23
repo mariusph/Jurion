@@ -42,9 +42,14 @@ public class LoginDatenSteps extends AbstractSteps {
 	}
 
 	@StepGroup
-	public void clickOnInsolventzRechtCheckbox() {
-		loginDatenPage().clickOnInsolventzRechtCheckbox();
+	public void clickOnInsolventzRecht() {
+		clickOnInsolventzRechtCheckbox();
 		verifyThatTheCheckBoxCounterIsIcremented();
+	}
+	
+	@Step
+	public void clickOnInsolventzRechtCheckbox(){
+		loginDatenPage().clickOnInsolventzRechtCheckbox();
 	}
 
 	@Step

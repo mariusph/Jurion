@@ -44,8 +44,7 @@ public class CreateAccountModelTest extends BaseTest {
     }
 
     public void setFirstname(String firstname) {
-        customer.setFirstname(firstname
-                + RandomStringUtils.randomAlphanumeric(5));
+        customer.setFirstname(RandomStringUtils.randomAlphabetic(5) + firstname);
     }
 
     public void setLastname(String lastname) {
@@ -61,7 +60,7 @@ public class CreateAccountModelTest extends BaseTest {
     }
 
     public void setEmail(String email) {
-        customer.setEmail(email + RandomStringUtils.randomAlphanumeric(5));
+        customer.setEmail(RandomStringUtils.randomAlphanumeric(5)+ email);
     }
 
     public void setPhone(String phone) {
@@ -111,7 +110,7 @@ public class CreateAccountModelTest extends BaseTest {
         loginDatenSteps.fillPasswords(customer.getPassword());
 
         loginDatenSteps.expandDomainArrow();
-        loginDatenSteps.clickOnInsolventzRechtCheckbox();
+        loginDatenSteps.clickOnInsolventzRecht();
         loginDatenSteps.closeDomainArrow();
 
         loginDatenSteps.getProfessionalList();

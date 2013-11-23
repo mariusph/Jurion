@@ -96,7 +96,7 @@ public class BestatigenPage extends AbstractPage{
 
 	public void clickOnAgreeTermsCheckbox() {
 		element(agreeTermsCheckbox).waitUntilVisible();
-		agreeTermsCheckbox.click();
+		elementjQueryClick("#confirm_terms");
 
 	}
 

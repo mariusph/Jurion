@@ -134,7 +134,7 @@ public class CreateAccountTest extends BaseTest {
     public void createNewAccount() {
 
         homeSteps.openHomePage();
-
+      
         // click on 'Registrien' button
         homeSteps.clickOnRegistrierenButton();
 

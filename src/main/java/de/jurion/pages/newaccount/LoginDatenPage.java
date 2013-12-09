@@ -5,11 +5,9 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import de.jurion.tools.AbstractPage;
@@ -79,6 +77,7 @@ public class LoginDatenPage extends AbstractPage {
 		if(wirtschaftrechtCheckboxContainer.getText().contains(CustomerLabels.INTERNATIONAL_LAW_SUBDOMAIN)){
 			insolvenzrechtCheckbox.sendKeys(Keys.SPACE);
 		}	
+
 	}
 	
 	public int verifyThatTheCheckBoxCounterIsIcremented(){

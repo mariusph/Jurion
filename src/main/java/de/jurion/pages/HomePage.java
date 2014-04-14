@@ -15,13 +15,13 @@ public class HomePage extends AbstractPage {
     @FindBy(id = "account-handling")
     private WebElement registrierenContainer;
 
-    @FindBy(css = "div.button.register-handler a")
+    @FindBy(css = "div#up-register-button a")
     private WebElement registrierenButton;
 
     public void clickOnRegistrierenButton() {
-        element(registrierenContainer).waitUntilPresent();
+//        element(registrierenContainer).waitUntilPresent();
         element(registrierenButton).waitUntilVisible();
         registrierenButton.click();
-    }
+        }
 
 }

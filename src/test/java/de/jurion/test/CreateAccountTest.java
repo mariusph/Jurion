@@ -11,6 +11,8 @@ import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import de.jurion.requirements.Application;
 import de.jurion.steps.HomeSteps;

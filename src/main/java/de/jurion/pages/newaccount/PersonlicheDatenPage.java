@@ -1,5 +1,7 @@
 package de.jurion.pages.newaccount;
 
+import java.util.List;
+
 import net.thucydides.core.annotations.findby.FindBy;
 
 import org.openqa.selenium.By;
@@ -7,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import de.jurion.tools.AbstractPage;
+import de.jurion.tools.Constants;
+import de.jurion.tools.CustomerLabels;
 
 public class PersonlicheDatenPage extends AbstractPage {
 
@@ -16,9 +20,15 @@ public class PersonlicheDatenPage extends AbstractPage {
 
     @FindBy(css = "input#institution")
     private WebElement institutionInput;
+    
+    @FindBy(css = "div#gender-elem")
+    private WebElement genderCheckboxContainer;
 
-    @FindBy(id = "gender")
-    private WebElement anredeDropdown;
+    @FindBy(id = "gender-1")
+    private WebElement anrredeHerrCheckbox;
+  
+    @FindBy(css = "input#gender-2")
+    private WebElement anrredeFrauCheckbox;
 
     @FindBy(id = "title")
     private WebElement akademischerTitelDropdown;
@@ -41,7 +51,7 @@ public class PersonlicheDatenPage extends AbstractPage {
     @FindBy(id = "country")
     private WebElement landDropdown;
 
-    @FindBy(css = "input#email")
+    @FindBy(id = "email")
     private WebElement emailInput;
 
     @FindBy(id = "profession")
@@ -58,9 +68,21 @@ public class PersonlicheDatenPage extends AbstractPage {
         institutionInput.sendKeys(institution);
     }
 
-    public void selectFromAnredeDropdown(String gender) {
-        element(anredeDropdown).waitUntilVisible();
-        element(anredeDropdown).selectByVisibleText(gender);
+    public void selectFromAnredeCheckbox(String gender) {
+        element(genderCheckboxContainer).waitUntilVisible();
+//        if(gender==CustomerLabels.GENDER_MALE)
+        System.out.println("XXX : "+genderCheckboxContainer.getText());
+        elementFocus("div#gender-elem input#gender-1");
+        System.out.println("Is focused indeeed !!!");
+        elementjQueryClick("div#gender-elem input#gender-1");
+//        	List<WebElement> elems = genderCheckboxContainer.findElements(By.cssSelector("span.radio"));
+//        	for(WebElement elem:elems){
+//        	if(elem.getText().contains(gender)){
+//        		elem.click();
+//        	}	
+//        	}
+//        else if(gender==CustomerLabels.GENDER_MALE)
+//        	genderCheckboxContainer.findElement(By.cssSelector("input#gender-2")).click();
     }
 
     public void selectAcademicTitleDropdown(String academicTitle) {

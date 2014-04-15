@@ -20,8 +20,8 @@ public class PersonlicheDatenSteps extends AbstractSteps {
             String academicTitle, String firstname, String lastname,
             String address, String plz, String city, String country,
             String email, String phone, String profession) {
-        fillInstitutionName(institution);
-        selectFromAnredeDropdown(gender);
+//        fillInstitutionName(institution);
+        selectFromAnredeCheckbox(gender);
         selectAcademicTitleDropdown(academicTitle);
         fillVorname(firstname);
         fillNachName(lastname);
@@ -38,8 +38,8 @@ public class PersonlicheDatenSteps extends AbstractSteps {
     // using model
     @StepGroup
     public void fillTheDataForm(CustomerModel customer) {
-        fillInstitutionName(customer.getInstitution());
-        selectFromAnredeDropdown(CustomerLabels.GENDER_MALE);
+//        fillInstitutionName(customer.getInstitution());
+        selectFromAnredeCheckbox(CustomerLabels.GENDER_MALE);
         selectAcademicTitleDropdown(CustomerLabels.ACADEMIC_PROF_DR);
         fillVorname(customer.getFirstname());
         fillNachName(customer.getLastname());
@@ -59,8 +59,8 @@ public class PersonlicheDatenSteps extends AbstractSteps {
     }
 
     @Step
-    public void selectFromAnredeDropdown(String gender) {
-        personlicheDatenPage().selectFromAnredeDropdown(gender);
+    public void selectFromAnredeCheckbox(String gender) {
+        personlicheDatenPage().selectFromAnredeCheckbox(gender);
     }
 
     @Step

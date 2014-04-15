@@ -141,7 +141,7 @@ public class CreateAccountTest extends BaseTest {
         homeSteps.clickOnRegistrierenButton();
 
         // click on 'Weiter' button to start filling the register form
-        registrierungStartenSteps.clickOnWeiterButton();
+//        registrierungStartenSteps.clickOnWeiterButton();
 
         // fill the data
         email = RandomStringUtils.randomAlphanumeric(5) + email;

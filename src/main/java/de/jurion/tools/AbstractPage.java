@@ -46,6 +46,7 @@ public class AbstractPage extends PageObject {
         action.click(element).perform();
     }
     
+   
     public void elementFocus(String element) {
 		evaluateJavascript("var element =jQuery(' " + element
 				+ " ');element.focus();");

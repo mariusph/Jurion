@@ -68,6 +68,7 @@ public class PersonlicheDatenPage extends AbstractPage {
         institutionInput.sendKeys(institution);
     }
 
+     // needs refactoring
     public void selectFromAnredeCheckbox(String gender) {
         element(genderCheckboxContainer).waitUntilVisible();
 //        if(gender==CustomerLabels.GENDER_MALE)

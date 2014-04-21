@@ -25,15 +25,35 @@ public class PersonlicheDatenSteps extends AbstractSteps {
         selectAcademicTitleDropdown(academicTitle);
         fillVorname(firstname);
         fillNachName(lastname);
-        fillAddress(address);
-        fillPlz(plz);
-        fillOrt(city);
-        selectLandDropdown(country);
-        fillEmailAdresse(email);
-        fillTelefon(phone);
-        selectBerufDropdown(profession);
-        clickOnWeiterButton();
+        
+//        fillAddress(address);
+//        fillPlz(plz);
+//        fillOrt(city);
+//        selectLandDropdown(country);
+//        fillEmailAdresse(email);
+//        fillTelefon(phone);
+//        selectBerufDropdown(profession);
+//        clickOnWeiterButton();
     }
+    
+    @StepGroup
+    public void fillRegisterDataForm(String gender,
+            String academicTitle, String firstname, String lastname,
+            String email, String password) {
+//        fillInstitutionName(institution);
+        selectFromAnredeCheckbox(gender);
+        selectAcademicTitleDropdown(academicTitle);
+        fillVorname(firstname);
+        fillNachName(lastname);
+        fillUsernameInput(email);
+        fillPasswordInput(password);
+        tickAcceptTermsCheckbox();
+        tickAcceptNewsletterCheckbox();
+        tickDataProtectionCheckbox();
+        clickOnRegisterButton();
+
+    }
+
 
     // using model
     @StepGroup
@@ -116,6 +136,36 @@ public class PersonlicheDatenSteps extends AbstractSteps {
     @Step
     public void clickOnWeiterButton() {
         personlicheDatenPage().clickOnWeiterButton();
+    }
+    
+    @Step
+    public void fillUsernameInput(String email){
+    	personlicheDatenPage().fillUsernameInput(email);
+    }
+    
+    @Step
+    public void fillPasswordInput(String password){
+    	personlicheDatenPage().fillPasswordInput(password);
+    }
+    
+    @Step
+    public void tickAcceptTermsCheckbox(){
+    	personlicheDatenPage().tickAcceptTermsCheckbox();
+    }
+    
+    @Step
+    public void tickAcceptNewsletterCheckbox(){
+    	personlicheDatenPage().tickAcceptNewsletterCheckbox();
+    }
+    
+    @Step
+    public void tickDataProtectionCheckbox(){
+    	personlicheDatenPage().tickDataProtectionCheckbox();
+    }
+    
+    @Step
+    public void clickOnRegisterButton(){
+    	personlicheDatenPage().clickOnRegisterButton();
     }
 
 }

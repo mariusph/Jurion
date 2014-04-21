@@ -2,6 +2,7 @@ package de.jurion.test;
 
 import java.util.List;
 
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.junit.annotations.Qualifier;
@@ -139,64 +140,70 @@ public class CreateAccountTest extends BaseTest {
       
         // click on 'Registrien' button
         homeSteps.clickOnRegistrierenButton();
+        
+        // login details
+       // homeSteps.fillLoginDetails(email, password);
 
         // click on 'Weiter' button to start filling the register form
 //        registrierungStartenSteps.clickOnWeiterButton();
 
         // fill the data
         email = RandomStringUtils.randomAlphanumeric(5) + email;
-        firstname = RandomStringUtils.randomAlphabetic(5) + firstname;
-        personlicheDatenSteps
-                .fillTheDataForm(institution, CustomerLabels.GENDER_MALE,
-                        CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname,
-                        address, plz, city, CustomerLabels.COUNTRY, email,
-                        phone, CustomerLabels.PROFESSION);
+        password = RandomStringUtils.randomAlphabetic(5) +"_"+ firstname;
+        personlicheDatenSteps.fillRegisterDataForm(CustomerLabels.GENDER_MALE,
+                CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname,
+                email, password);
+        
+//        personlicheDatenSteps.fillTheDataForm(institution, CustomerLabels.GENDER_MALE,
+//                        CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname,
+//                        address, plz, city, CustomerLabels.COUNTRY, email,
+//                        phone, CustomerLabels.PROFESSION);
 
         // login credentials
-        loginDatenSteps.getTheUsername();
-        String username = loginDatenSteps.getTheUsername();
-
-        loginDatenSteps.fillPasswords(password);
-
-        loginDatenSteps.expandDomainArrow();
-        loginDatenSteps.clickOnInsolventzRecht();
-        loginDatenSteps.closeDomainArrow();
-
-        loginDatenSteps.getProfessionalList();
-        List<String> list1 = loginDatenSteps.getProfessionalList();
-        loginDatenSteps.clickOnWeiterButton();
-
-        // verify customer's info's
-        // check email
-        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.EMAIL_ADDRESS_LABEL, email);
-        // verify the telephone
-        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.PHONE_LABEL, phone);
-        // verify the profession
-        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.PROFESSION_TITLE_LABEL, CustomerLabels.PROFESSION);
-        // verify the address details
-		bestatigenSteps.verifyCustomerLabelAndMultipleValues(
-						CustomerLabels.ADDRESS_TITLE_LABEL, institution,
-						CustomerLabels.GENDER_MALE,
-						CustomerLabels.ACADEMIC_PROF_DR, lastname, firstname,
-						address, plz, city, CustomerLabels.COUNTRY);
-       // verify the username
-		bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.USERNAME_TITLE_LABEL, username);
-		// verify the field of interest
-		bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.INTERNATIONAL_LAW_TITLE_LABEL, CustomerLabels.INTERNATIONAL_LAW_SUBDOMAIN);
-		// verify the geographic area of interest
-		bestatigenSteps.verifyProfessionalList();
-        List<String> list2 = bestatigenSteps.verifyProfessionalList();
-        // chack that the lists are the same
-        bestatigenSteps.compareTheProfessionalLists(list1,list2);
-        
-        // click on agree terms checkbox
-        bestatigenSteps.clickOnAgreeTermsCheckbox();
-        
-        // click on submitt button
-        bestatigenSteps.clickOnAbsendenButton();
-        
-        // check the confirmation message for registration
-        bestatigenSteps.checkTheRegistrationMessage();
+//        loginDatenSteps.getTheUsername();
+//        String username = loginDatenSteps.getTheUsername();
+//
+//        loginDatenSteps.fillPasswords(password);
+//
+//        loginDatenSteps.expandDomainArrow();
+//        loginDatenSteps.clickOnInsolventzRecht();
+//        loginDatenSteps.closeDomainArrow();
+//
+//        loginDatenSteps.getProfessionalList();
+//        List<String> list1 = loginDatenSteps.getProfessionalList();
+//        loginDatenSteps.clickOnWeiterButton();
+//
+//        // verify customer's info's
+//        // check email
+//        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.EMAIL_ADDRESS_LABEL, email);
+//        // verify the telephone
+//        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.PHONE_LABEL, phone);
+//        // verify the profession
+//        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.PROFESSION_TITLE_LABEL, CustomerLabels.PROFESSION);
+//        // verify the address details
+//		bestatigenSteps.verifyCustomerLabelAndMultipleValues(
+//						CustomerLabels.ADDRESS_TITLE_LABEL, institution,
+//						CustomerLabels.GENDER_MALE,
+//						CustomerLabels.ACADEMIC_PROF_DR, lastname, firstname,
+//						address, plz, city, CustomerLabels.COUNTRY);
+//       // verify the username
+//		bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.USERNAME_TITLE_LABEL, username);
+//		// verify the field of interest
+//		bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.INTERNATIONAL_LAW_TITLE_LABEL, CustomerLabels.INTERNATIONAL_LAW_SUBDOMAIN);
+//		// verify the geographic area of interest
+//		bestatigenSteps.verifyProfessionalList();
+//        List<String> list2 = bestatigenSteps.verifyProfessionalList();
+//        // chack that the lists are the same
+//        bestatigenSteps.compareTheProfessionalLists(list1,list2);
+//        
+//        // click on agree terms checkbox
+//        bestatigenSteps.clickOnAgreeTermsCheckbox();
+//        
+//        // click on submitt button
+//        bestatigenSteps.clickOnAbsendenButton();
+//        
+//        // check the confirmation message for registration
+//        bestatigenSteps.checkTheRegistrationMessage();
         
         
         

@@ -62,6 +62,24 @@ public class PersonlicheDatenPage extends AbstractPage {
 
     @FindBy(css = "fieldset#fieldset-form1 dd#buttonnavigation-element")
     private WebElement weiterButtonContainer;
+    
+    @FindBy(css = "input#email")
+    private WebElement nutznameInput;
+    
+    @FindBy(css = "input#password")
+    private WebElement passwortInput;
+    
+    @FindBy(css = "#confirm_terms-elem span.checkbox")
+    private WebElement firstCheckbox;
+    
+    @FindBy(css = "#accept_newsletter-elem span.checkbox")
+    private WebElement secondCheckbox;
+    
+    @FindBy(css = "#accept_marketing-elem span.checkbox")
+    private WebElement thirdCheckbox;
+    
+    @FindBy(css = "input#submit")
+    private WebElement registerButton; 
 
     public void fillInstitutionName(String institution) {
         element(institutionInput).waitUntilVisible();
@@ -141,5 +159,35 @@ public class PersonlicheDatenPage extends AbstractPage {
         WebElement button = weiterButtonContainer.findElement(By.id("next"));
         button.click();
     }
+
+	public void fillUsernameInput(String email) {
+		element(nutznameInput).waitUntilVisible();
+		nutznameInput.sendKeys(email);
+	}
+
+	public void fillPasswordInput(String password) {
+		element(passwortInput).waitUntilVisible();
+		passwortInput.sendKeys(password);
+	}
+
+	public void tickAcceptTermsCheckbox() {
+		element(firstCheckbox).waitUntilVisible();
+		firstCheckbox.click();
+	}
+
+	public void tickAcceptNewsletterCheckbox() {
+		element(secondCheckbox).waitUntilVisible();
+		secondCheckbox.click();
+	}
+
+	public void tickDataProtectionCheckbox() {
+		element(thirdCheckbox).waitUntilVisible();
+		thirdCheckbox.click();
+	}
+
+	public void clickOnRegisterButton() {
+		element(registerButton).waitUntilVisible();
+		registerButton.click();
+	}
 
 }

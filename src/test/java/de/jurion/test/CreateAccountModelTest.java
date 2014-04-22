@@ -100,8 +100,8 @@ public class CreateAccountModelTest extends BaseTest {
 
         // click on 'Weiter' button to start filling the register form
         registrierungStartenSteps.clickOnWeiterButton();
-
-        personlicheDatenSteps.fillTheDataForm(customer);
+         // needs refactoring
+        //  personlicheDatenSteps.fillTheDataForm(customer);
 
         // login credentials
         loginDatenSteps.getTheUsername();

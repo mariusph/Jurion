@@ -56,22 +56,22 @@ public class PersonlicheDatenSteps extends AbstractSteps {
 
 
     // using model
-    @StepGroup
-    public void fillTheDataForm(CustomerModel customer) {
-//        fillInstitutionName(customer.getInstitution());
-        selectFromAnredeCheckbox(CustomerLabels.GENDER_MALE);
-        selectAcademicTitleDropdown(CustomerLabels.ACADEMIC_PROF_DR);
-        fillVorname(customer.getFirstname());
-        fillNachName(customer.getLastname());
-        fillAddress(customer.getAddress());
-        fillPlz(customer.getPlz());
-        fillOrt(customer.getCity());
-        selectLandDropdown(CustomerLabels.COUNTRY);
-        fillEmailAdresse(customer.getEmail());
-        fillTelefon(customer.getPhone());
-        selectBerufDropdown(CustomerLabels.PROFESSION);
-        clickOnWeiterButton();
-    }
+//    @StepGroup
+//    public void fillTheDataForm(CustomerModel customer) {
+////        fillInstitutionName(customer.getInstitution());
+//        selectFromAnredeCheckbox(CustomerLabels.GENDER_MALE);
+//        selectAcademicTitleDropdown(CustomerLabels.ACADEMIC_PROF_DR);
+//        fillVorname(customer.getFirstname());
+//        fillNachName(customer.getLastname());
+//        fillAddress(customer.getAddress());
+//        fillPlz(customer.getPlz());
+//        fillOrt(customer.getCity());
+//        selectLandDropdown(CustomerLabels.COUNTRY);
+//        fillEmailAdresse(customer.getEmail());
+//        fillTelefon(customer.getPhone());
+//        selectBerufDropdown(CustomerLabels.PROFESSION);
+//        clickOnWeiterButton();
+//    }
 
     @Step
     public void fillInstitutionName(String institution) {

@@ -20,6 +20,7 @@ import de.jurion.steps.HomeSteps;
 import de.jurion.steps.newaccount.BestatigenSteps;
 import de.jurion.steps.newaccount.LoginDatenSteps;
 import de.jurion.steps.newaccount.PersonlicheDatenSteps;
+import de.jurion.steps.newaccount.RegisterSteps;
 import de.jurion.steps.newaccount.RegistrierungStartenSteps;
 import de.jurion.tools.ConfigFileLibrary;
 import de.jurion.tools.Constants;
@@ -125,7 +126,7 @@ public class CreateAccountTest extends BaseTest {
     public RegistrierungStartenSteps registrierungStartenSteps;
 
     @Steps
-    public PersonlicheDatenSteps personlicheDatenSteps;
+    public RegisterSteps registerSteps;
 
     @Steps
     public LoginDatenSteps loginDatenSteps;
@@ -150,7 +151,7 @@ public class CreateAccountTest extends BaseTest {
         // fill the data
         email = RandomStringUtils.randomAlphanumeric(5) + email;
         password = RandomStringUtils.randomAlphabetic(5) +"_"+ firstname;
-        personlicheDatenSteps.fillRegisterDataForm(CustomerLabels.GENDER_MALE,
+        registerSteps.fillRegisterDataForm(CustomerLabels.GENDER_MALE,
                 CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname,
                 email, password);
         

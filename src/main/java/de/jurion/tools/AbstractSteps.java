@@ -6,6 +6,7 @@ import de.jurion.pages.HomePage;
 import de.jurion.pages.newaccount.BestatigenPage;
 import de.jurion.pages.newaccount.LoginDatenPage;
 import de.jurion.pages.newaccount.PersonlicheDatenPage;
+import de.jurion.pages.newaccount.RegisterPage;
 import de.jurion.pages.newaccount.RegistrierungStartenPage;
 
 public class AbstractSteps extends ScenarioSteps {
@@ -34,6 +35,10 @@ public class AbstractSteps extends ScenarioSteps {
     
     public BestatigenPage bestatigenPage(){
     	return getPages().currentPageAt(BestatigenPage.class);
+    }
+    
+    public RegisterPage registerPage(){
+    	return getPages().currentPageAt(RegisterPage.class);
     }
 
 }

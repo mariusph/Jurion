@@ -22,5 +22,7 @@ public class CustomerLabels {
 	public static final String INTERNATIONAL_LAW_TITLE_LABEL = "Wirtschaftsrecht";
 	
 	public static final String CONFIRMATION_FOR_REGISTRION= "Registrierung abschließen";
+	public static final String SHOP_LABEL = "Shop";
+	public static final String AKTUELLES_LABEL = "Aktuelles";
 	
 }

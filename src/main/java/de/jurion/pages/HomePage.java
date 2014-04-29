@@ -1,5 +1,6 @@
 package de.jurion.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,8 +19,11 @@ public class HomePage extends AbstractPage {
     @FindBy(css = "div#up-register-button a")
     private WebElement anmeldenButton;
     
-    @FindBy(css = "div[class*='register'] a[href*='register']")
-    private WebElement registrierenButton;
+    @FindBy(css = "button[type='submit']")
+    private WebElement submitLoginButton;
+    
+    @FindBy(css = "a[href*='register']")
+    private WebElement registrierenLink;
     
 
     @FindBy(id = "login_username")
@@ -30,10 +34,10 @@ public class HomePage extends AbstractPage {
     
 
     public void clickOnRegistrierenButton() {
-//        element(registrierenContainer).waitUntilPresent();
-        element(registrierenButton).waitUntilVisible();
-        registrierenButton.click();
-        }
+        element(registrierenLink).waitUntilPresent();
+      
+       registrierenLink.click();
+    }
 
 	public void fillUserNameInput(String email) {
 		 element(nutznameImput).waitUntilVisible();
@@ -53,6 +57,11 @@ public class HomePage extends AbstractPage {
 		element(anmeldenButton).waitUntilVisible();
 		System.out.println("FFFF FFF " + anmeldenButton.getText());
 		anmeldenButton.click();
+	}
+	
+	public void clickOnSubmitLoginButton() {
+		element(submitLoginButton).waitUntilVisible();
+		submitLoginButton.click();
 	}
 
 }

@@ -5,9 +5,11 @@ import net.thucydides.core.steps.ScenarioSteps;
 import de.jurion.pages.HomePage;
 import de.jurion.pages.newaccount.BestatigenPage;
 import de.jurion.pages.newaccount.LoginDatenPage;
+import de.jurion.pages.newaccount.MyJurionPage;
 import de.jurion.pages.newaccount.PersonlicheDatenPage;
 import de.jurion.pages.newaccount.RegisterPage;
 import de.jurion.pages.newaccount.RegistrierungStartenPage;
+import de.jurion.pages.newaccount.StorePage;
 
 public class AbstractSteps extends ScenarioSteps {
 
@@ -39,6 +41,14 @@ public class AbstractSteps extends ScenarioSteps {
     
     public RegisterPage registerPage(){
     	return getPages().currentPageAt(RegisterPage.class);
+    }
+    
+    public MyJurionPage myJurionPage(){
+    	return getPages().currentPageAt(MyJurionPage.class);
+    }
+    
+    public StorePage storePage(){
+    	return getPages().currentPageAt(StorePage.class);
     }
 
 }

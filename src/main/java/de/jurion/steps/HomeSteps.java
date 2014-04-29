@@ -37,7 +37,7 @@ public class HomeSteps extends AbstractSteps {
     	fillUserNameInput(email);
     	fillPasswordInput(password);
     	// click on login button
-    	clickOnLoginButton();
+    	clickOnSubmitLoginButton();
 	}
     
     @Step
@@ -53,6 +53,11 @@ public class HomeSteps extends AbstractSteps {
     @Step
     public void clickOnLoginButton(){
     	homePage().clickOnLoginButton();
+    }
+    
+    @Step
+    public void clickOnSubmitLoginButton(){
+    	homePage().clickOnSubmitLoginButton();
     }
     
    

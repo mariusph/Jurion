@@ -1,5 +1,7 @@
 package de.jurion.steps.newaccount;
 
+import java.util.List;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.pages.Pages;
@@ -32,6 +34,26 @@ public class StoreSteps extends AbstractSteps{
 	@Step
 	public void clickOnSearchButton(){
 		storePage().clickOnSearchButton();
+	}
+    
+	@Step
+	public void refineTheSearchAfterBook() {
+		storePage().refineTheSearchAfterBook();
+	}
+	
+	@Step
+	public List<String> getResultsList(String subject){
+		return storePage().getResultsList(subject);
+	}
+    
+	@Step
+	public void chooseFromResultsList(String subject) {
+		storePage().chooseFromResultsList(subject);
+	}
+	
+	@Step
+	public void verifyTheChoosenTitle(List<String> list) {
+		storePage().verifyTheChoosenTitle(list);
 	}
 
 }

@@ -1,5 +1,7 @@
 package de.jurion.test;
 
+import java.util.List;
+
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.junit.annotations.Qualifier;
@@ -153,7 +155,16 @@ public class CustomerLoginAndBuyTest extends BaseTest {
         // search for a subject
         storeSteps.searchBySubject(subject);
         
-
+        // refine the search, using as first criteria : 'bucher'
+        storeSteps.refineTheSearchAfterBook();
+        
+        // choose the first book from the list that has the title containing the subject
+        List<String> list = storeSteps.getResultsList(subject);
+        storeSteps.chooseFromResultsList(subject);
+        
+        // check the title
+        storeSteps.verifyTheChoosenTitle(list);
+        
         // click on 'Weiter' button to start filling the register form
 //        registrierungStartenSteps.clickOnWeiterButton();
 

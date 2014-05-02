@@ -24,5 +24,7 @@ public class CustomerLabels {
 	public static final String CONFIRMATION_FOR_REGISTRION= "Registrierung abschließen";
 	public static final String SHOP_LABEL = "Shop";
 	public static final String AKTUELLES_LABEL = "Aktuelles";
+	public static final String TITLES_DESCENDEING_DROPDOWN = "Titel absteigend";
+	
 	
 }

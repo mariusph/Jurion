@@ -23,6 +23,9 @@ public class MyJurionPage extends AbstractPage{
 	
 	@FindBy(css ="div.last")
 	private WebElement headerContainer;
+	
+	@FindBy(id ="shopping-cart")
+	private WebElement shoppingCartButton;
 
 	public void clickOnHeaderButton(String label) {
 		try {
@@ -38,6 +41,12 @@ public class MyJurionPage extends AbstractPage{
 			System.out.println("In the catch");
 		}
 
+	}
+
+	public void clickOnShoppingCart() {
+
+		element(shoppingCartButton).waitUntilVisible();
+		shoppingCartButton.click();
 	}
 
 }

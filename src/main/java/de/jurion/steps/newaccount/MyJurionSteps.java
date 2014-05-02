@@ -20,5 +20,10 @@ public class MyJurionSteps extends AbstractSteps{
 	public void clickOnHeaderButton(String label) {
 		myJurionPage().clickOnHeaderButton(label);
 	}
+    
+	@Step
+	public void clickOnShoppingCart() {
+		myJurionPage().clickOnShoppingCart();
+	}
 
 }

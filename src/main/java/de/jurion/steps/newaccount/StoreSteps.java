@@ -55,5 +55,25 @@ public class StoreSteps extends AbstractSteps{
 	public void verifyTheChoosenTitle(List<String> list) {
 		storePage().verifyTheChoosenTitle(list);
 	}
+    
+	@Step
+	public void addToChart(List<String> list) {
+		storePage().addtoChart(list);
+	}
+    
+	@Step
+	public String getThePrice() {
+		return storePage().getThePrice();
+	}
+    
+	@Step
+	public void refineTheSearchAfterMagazine() {
+		storePage().refineTheSearchAfterMagazine();
+	}
+    
+	@Step
+	public void refineResultsAfterTitleDescending() {
+		storePage().refineResultsAfterTitleDescending();
+	}
 
 }

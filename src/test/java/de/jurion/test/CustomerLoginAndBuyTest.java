@@ -8,7 +8,6 @@ import net.thucydides.junit.annotations.Qualifier;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -24,7 +23,7 @@ import de.jurion.tools.ConfigFileLibrary;
 import de.jurion.tools.Constants;
 import de.jurion.tools.CustomerLabels;
 
-@Story(Application.User.CreateUser.class)
+@Story(Application.Customer.BuyProducts.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom(value = Constants.TESTDATA_FILES_PATH
         + ConfigFileLibrary.CUSTOMER_LOGIN_AND_BUY, separator = Constants.CSV_SEPARATOR)
@@ -42,7 +41,7 @@ public class CustomerLoginAndBuyTest extends BaseTest {
     
     @Qualifier
 	public String getQualifier(){
-		return lastname +" "+ firstname;
+		return email +" "+ firstname;
 	}
 
     public void setSuject(String subject) {
@@ -159,11 +158,43 @@ public class CustomerLoginAndBuyTest extends BaseTest {
         storeSteps.refineTheSearchAfterBook();
         
         // choose the first book from the list that has the title containing the subject
-        List<String> list = storeSteps.getResultsList(subject);
+        List<String> list1 = storeSteps.getResultsList(subject);
         storeSteps.chooseFromResultsList(subject);
         
-        // check the title
-        storeSteps.verifyTheChoosenTitle(list);
+        // verify if the same title
+        storeSteps.verifyTheChoosenTitle(list1);
+        
+        // add the book to chart
+        String price1 = storeSteps.getThePrice();
+        storeSteps.addToChart(list1);
+        
+        // go in the Store
+        myJurionSteps.clickOnHeaderButton(CustomerLabels.SHOP_LABEL);
+        
+        // search for a subject
+        storeSteps.searchBySubject(subject);
+        
+        // refine the search, using as first criteria : 'zeitschriften'
+        storeSteps.refineTheSearchAfterMagazine();
+        
+        // sort after 'Titles descending'
+        storeSteps.refineResultsAfterTitleDescending();
+        
+     // choose the first magazine from the list that has the title containing the subject
+        List<String> list2 = storeSteps.getResultsList(subject);
+        storeSteps.chooseFromResultsList(subject);
+        
+       // verify if the same title
+        storeSteps.verifyTheChoosenTitle(list2);
+        
+        // add the magazine to chart
+        String price2 = storeSteps.getThePrice();
+        storeSteps.addToChart(list2);
+        
+        // click on Shopping Cart
+        myJurionSteps.clickOnShoppingCart();
+        
+//        List<String> mainList = list1.addAll(list2);
         
         // click on 'Weiter' button to start filling the register form
 //        registrierungStartenSteps.clickOnWeiterButton();

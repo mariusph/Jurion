@@ -8,4 +8,10 @@ public class Application {
         public class CreateUser {
         }
     }
+    
+    @Feature
+    public class Customer {
+        public class BuyProducts {
+        }
+    }
 }

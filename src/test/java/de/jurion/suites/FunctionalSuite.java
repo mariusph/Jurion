@@ -6,14 +6,14 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import de.jurion.test.CreateAccountModelTest;
 import de.jurion.test.CreateAccountTest;
-import de.jurion.test.CustomerLoginAndBuyTest;
+import de.jurion.test.CustomerAddAndRemoveFromCartTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
    
 	 CreateAccountTest.class,
 //	 CreateAccountModelTest.class,
-	 CustomerLoginAndBuyTest.class,
+	 CustomerAddAndRemoveFromCartTest.class,
 	 
 })
 public class FunctionalSuite {

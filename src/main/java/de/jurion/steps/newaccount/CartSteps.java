@@ -20,40 +20,6 @@ public class CartSteps extends AbstractSteps{
 	}
     
 	@Step
-	public void verifyTitleAndPrice(List<String> list, String price) {
-		cartPage().verifyTitleAndPrice(list, price);
-	}
-    
-	@StepGroup
-	public void verifyThePrices(String... prices) {
-		for(String price : prices){
-			verifyThePrice(price);
-		}
-	}
-	
-	@Step
-	public void verifyThePrice(String price){
-		cartPage().verifyThePrice(price);
-	}
-	
-	@StepGroup
-	public void verifyTheTitles(List<String>...lists) {
-		for(List<String> list :lists){
-			verifyTheTitle(list);
-		}
-	}
-	
-	@Step
-	public void verifyTheTitle(List<String> list){
-		cartPage().verifyTheTitle(list);
-	}
-    
-	@Step
-	public void removeTitleFromCart(List<String> list) {
-		cartPage().removeTitleFromCart(list);
-	}
-    
-	@Step
 	public void verifyBookTitleAndPrice(List<String> list, String price) {
 		cartPage().verifyBookTitleAndPrice(list, price);
 	}
@@ -61,6 +27,21 @@ public class CartSteps extends AbstractSteps{
 	@Step
 	public void verifyMagazineTitleAndPrice(List<String> list, String price) {
 		cartPage().verifyMagazineTitleAndPrice(list, price);
+	}
+    
+	@Step
+	public void removeBookFromCart(List<String> list) {
+		cartPage().removeBookFromCart(list);
+	}
+    
+	@Step
+	public void verifyThatBookIsRemoved(List<String> list) {
+		cartPage().verifyThatBookIsRemoved(list);
+	}
+	
+	@Step
+	public void removeMagazineFromCart(List<String> list) {
+		cartPage().removeMagazineFromCart(list);
 	}
 	
 }

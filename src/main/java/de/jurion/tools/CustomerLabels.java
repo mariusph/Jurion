@@ -25,6 +25,8 @@ public class CustomerLabels {
 	public static final String SHOP_LABEL = "Shop";
 	public static final String AKTUELLES_LABEL = "Aktuelles";
 	public static final String TITLES_DESCENDEING_DROPDOWN = "Titel absteigend";
+	public static final String USERNAME_LABEL = "Marius Pojar";
+	public static final String LOGOUT = "Abmelden";
 	
 	
 }

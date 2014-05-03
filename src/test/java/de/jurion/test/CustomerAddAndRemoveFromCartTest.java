@@ -29,7 +29,7 @@ import de.jurion.tools.CustomerLabels;
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom(value = Constants.TESTDATA_FILES_PATH
         + ConfigFileLibrary.CUSTOMER_LOGIN_AND_BUY, separator = Constants.CSV_SEPARATOR)
-public class CustomerLoginAndBuyTest extends BaseTest {
+public class CustomerAddAndRemoveFromCartTest extends BaseTest {
 
     private String subject;
     private String firstname;
@@ -187,7 +187,6 @@ public class CustomerLoginAndBuyTest extends BaseTest {
         
      // choose the first magazine from the list that has the title containing the subject
         List<String> list2 = storeSteps.getResultsList(subject);
-//        String bTitle = storeSteps.getBookResultsList(subject);
         
         storeSteps.chooseFromResultsList(subject);
         
@@ -202,76 +201,34 @@ public class CustomerLoginAndBuyTest extends BaseTest {
         myJurionSteps.clickOnShoppingCart();
         
         // verify in the cart the book and the magazine
-//        cartSteps.verifyThePrices(price1, price2);
         cartSteps.verifyBookTitleAndPrice(list1, price1);
         cartSteps.verifyMagazineTitleAndPrice(list2, price2);
-//        cartSteps.verifyTheTitles(list1, list2);
         
         //remove the book from the cart
-//        cartSteps.removeTitleFromCart(list1);
+        cartSteps.removeBookFromCart(list1);
+        // verify if the book was removed
+        cartSteps.verifyThatBookIsRemoved(list1);
+       
+        //logout user and re-login
+        myJurionSteps.clickOnHeaderUserNameButton(CustomerLabels.USERNAME_LABEL);
+        myJurionSteps.clickOnHeaderButton(CustomerLabels.LOGOUT);
         
-        // click on 'Weiter' button to start filling the register form
-//        registrierungStartenSteps.clickOnWeiterButton();
-
-        // fill the data
-//        email = RandomStringUtils.randomAlphanumeric(5) + email;
-//        password = RandomStringUtils.randomAlphabetic(5) +"_"+ firstname;
-//        registerSteps.fillRegisterDataForm(CustomerLabels.GENDER_MALE,
-//                CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname,
-//                email, password);
-//        
-//        personlicheDatenSteps.fillTheDataForm(institution, CustomerLabels.GENDER_MALE,
-//                        CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname,
-//                        address, plz, city, CustomerLabels.COUNTRY, email,
-//                        phone, CustomerLabels.PROFESSION);
-
-        // login credentials
-//        loginDatenSteps.getTheUsername();
-//        String username = loginDatenSteps.getTheUsername();
-//
-//        loginDatenSteps.fillPasswords(password);
-//
-//        loginDatenSteps.expandDomainArrow();
-//        loginDatenSteps.clickOnInsolventzRecht();
-//        loginDatenSteps.closeDomainArrow();
-//
-//        loginDatenSteps.getProfessionalList();
-//        List<String> list1 = loginDatenSteps.getProfessionalList();
-//        loginDatenSteps.clickOnWeiterButton();
-//
-//        // verify customer's info's
-//        // check email
-//        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.EMAIL_ADDRESS_LABEL, email);
-//        // verify the telephone
-//        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.PHONE_LABEL, phone);
-//        // verify the profession
-//        bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.PROFESSION_TITLE_LABEL, CustomerLabels.PROFESSION);
-//        // verify the address details
-//		bestatigenSteps.verifyCustomerLabelAndMultipleValues(
-//						CustomerLabels.ADDRESS_TITLE_LABEL, institution,
-//						CustomerLabels.GENDER_MALE,
-//						CustomerLabels.ACADEMIC_PROF_DR, lastname, firstname,
-//						address, plz, city, CustomerLabels.COUNTRY);
-//       // verify the username
-//		bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.USERNAME_TITLE_LABEL, username);
-//		// verify the field of interest
-//		bestatigenSteps.verifyCustomersLabelAndValue(CustomerLabels.INTERNATIONAL_LAW_TITLE_LABEL, CustomerLabels.INTERNATIONAL_LAW_SUBDOMAIN);
-//		// verify the geographic area of interest
-//		bestatigenSteps.verifyProfessionalList();
-//        List<String> list2 = bestatigenSteps.verifyProfessionalList();
-//        // chack that the lists are the same
-//        bestatigenSteps.compareTheProfessionalLists(list1,list2);
-//        
-//        // click on agree terms checkbox
-//        bestatigenSteps.clickOnAgreeTermsCheckbox();
-//        
-//        // click on submitt button
-//        bestatigenSteps.clickOnAbsendenButton();
-//        
-//        // check the confirmation message for registration
-//        bestatigenSteps.checkTheRegistrationMessage();
+        // click on 'Anmelden' button
+        homeSteps.clickOnLoginButton();
         
+        // login details
+        homeSteps.fillLoginDetails(email, password);
         
+     // click on Shopping Cart, check that the magazine is there
+        myJurionSteps.clickOnShoppingCart();
+        cartSteps.verifyMagazineTitleAndPrice(list2, price2);
+        // verify if the book is still removed
+        cartSteps.verifyThatBookIsRemoved(list1);
+        
+       //remove the magazine from the cart
+        cartSteps.removeMagazineFromCart(list2);
+        // verify that the cart is empty
+        myJurionSteps.verifyThaShoppingCartIsEmpty();
         
     }
 

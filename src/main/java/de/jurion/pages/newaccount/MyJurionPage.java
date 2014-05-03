@@ -5,6 +5,7 @@ import java.util.List;
 import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.annotations.findby.FindBy;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -47,6 +48,24 @@ public class MyJurionPage extends AbstractPage{
 
 		element(shoppingCartButton).waitUntilVisible();
 		shoppingCartButton.click();
+	}
+
+	public void clickOnHeaderUserNameButton(String usernameLabel) {
+		element(headerContainer).waitUntilVisible();
+		List<WebElement> list = headerContainer.findElements(By
+				.cssSelector("li a"));
+		for (WebElement elem : list) {
+			if (elem.getText().contains(usernameLabel)) {
+				elem.click();
+			}
+		}
+	}
+
+	public void verifyThaShoppingCartIsEmpty() {
+		element(headerContainer).waitUntilVisible();
+		WebElement cart = headerContainer.findElement(By
+				.cssSelector("li#shopping-cart"));
+		Assert.assertTrue("The cart is not empty"+cart.getText(),cart.getText().isEmpty());
 	}
 
 }

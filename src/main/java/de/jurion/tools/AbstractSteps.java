@@ -4,6 +4,7 @@ import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
 import de.jurion.pages.HomePage;
 import de.jurion.pages.newaccount.BestatigenPage;
+import de.jurion.pages.newaccount.CartPage;
 import de.jurion.pages.newaccount.LoginDatenPage;
 import de.jurion.pages.newaccount.MyJurionPage;
 import de.jurion.pages.newaccount.PersonlicheDatenPage;
@@ -49,6 +50,10 @@ public class AbstractSteps extends ScenarioSteps {
     
     public StorePage storePage(){
     	return getPages().currentPageAt(StorePage.class);
+    }
+    
+    public CartPage cartPage(){
+    	return getPages().currentPageAt(CartPage.class);
     }
 
 }

@@ -8,12 +8,14 @@ import net.thucydides.junit.annotations.Qualifier;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
+import org.hamcrest.text.pattern.Parse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import de.jurion.requirements.Application;
 import de.jurion.steps.HomeSteps;
 import de.jurion.steps.newaccount.BestatigenSteps;
+import de.jurion.steps.newaccount.CartSteps;
 import de.jurion.steps.newaccount.LoginDatenSteps;
 import de.jurion.steps.newaccount.MyJurionSteps;
 import de.jurion.steps.newaccount.RegisterSteps;
@@ -136,9 +138,12 @@ public class CustomerLoginAndBuyTest extends BaseTest {
     
     @Steps
     public StoreSteps storeSteps;
+    
+    @Steps
+    public CartSteps cartSteps;
 
     @Test
-    public void createNewAccount() {
+    public void customerLoginAndAddToCart() {
 
         homeSteps.openHomePage();
       
@@ -194,7 +199,12 @@ public class CustomerLoginAndBuyTest extends BaseTest {
         // click on Shopping Cart
         myJurionSteps.clickOnShoppingCart();
         
-//        List<String> mainList = list1.addAll(list2);
+        // verify in the cart the book and the magazine
+        cartSteps.verifyThePrices(price1, price2);
+        cartSteps.verifyTheTitles(list1, list2);
+        
+        //remove the book from the cart
+        cartSteps.removeTitleFromCart(list1);
         
         // click on 'Weiter' button to start filling the register form
 //        registrierungStartenSteps.clickOnWeiterButton();

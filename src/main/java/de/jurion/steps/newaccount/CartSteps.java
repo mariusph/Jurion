@@ -52,5 +52,15 @@ public class CartSteps extends AbstractSteps{
 	public void removeTitleFromCart(List<String> list) {
 		cartPage().removeTitleFromCart(list);
 	}
-
+    
+	@Step
+	public void verifyBookTitleAndPrice(List<String> list, String price) {
+		cartPage().verifyBookTitleAndPrice(list, price);
+	}
+	
+	@Step
+	public void verifyMagazineTitleAndPrice(List<String> list, String price) {
+		cartPage().verifyMagazineTitleAndPrice(list, price);
+	}
+	
 }

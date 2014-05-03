@@ -75,5 +75,11 @@ public class StoreSteps extends AbstractSteps{
 	public void refineResultsAfterTitleDescending() {
 		storePage().refineResultsAfterTitleDescending();
 	}
+	
+	@Step
+	public String getBookResultsList(String subject) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

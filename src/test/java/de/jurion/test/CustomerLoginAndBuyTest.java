@@ -187,6 +187,8 @@ public class CustomerLoginAndBuyTest extends BaseTest {
         
      // choose the first magazine from the list that has the title containing the subject
         List<String> list2 = storeSteps.getResultsList(subject);
+//        String bTitle = storeSteps.getBookResultsList(subject);
+        
         storeSteps.chooseFromResultsList(subject);
         
        // verify if the same title
@@ -200,11 +202,13 @@ public class CustomerLoginAndBuyTest extends BaseTest {
         myJurionSteps.clickOnShoppingCart();
         
         // verify in the cart the book and the magazine
-        cartSteps.verifyThePrices(price1, price2);
-        cartSteps.verifyTheTitles(list1, list2);
+//        cartSteps.verifyThePrices(price1, price2);
+        cartSteps.verifyBookTitleAndPrice(list1, price1);
+        cartSteps.verifyMagazineTitleAndPrice(list2, price2);
+//        cartSteps.verifyTheTitles(list1, list2);
         
         //remove the book from the cart
-        cartSteps.removeTitleFromCart(list1);
+//        cartSteps.removeTitleFromCart(list1);
         
         // click on 'Weiter' button to start filling the register form
 //        registrierungStartenSteps.clickOnWeiterButton();

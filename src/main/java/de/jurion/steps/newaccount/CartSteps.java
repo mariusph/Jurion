@@ -3,7 +3,6 @@ package de.jurion.steps.newaccount;
 import java.util.List;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.pages.Pages;
 import de.jurion.tools.AbstractSteps;
 

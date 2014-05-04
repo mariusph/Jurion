@@ -57,8 +57,8 @@ public class StoreSteps extends AbstractSteps{
 	}
     
 	@Step
-	public void addToChart(List<String> list) {
-		storePage().addtoChart(list);
+	public void addToCart(List<String> list) {
+		storePage().addtoCart(list);
 	}
     
 	@Step

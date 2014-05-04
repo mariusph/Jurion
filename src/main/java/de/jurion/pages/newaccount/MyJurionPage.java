@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import de.jurion.tools.AbstractPage;
-import de.jurion.tools.CustomerLabels;
 
 public class MyJurionPage extends AbstractPage{
 
@@ -46,8 +45,8 @@ public class MyJurionPage extends AbstractPage{
 
 	public void clickOnShoppingCart() {
 
-		element(shoppingCartButton).waitUntilVisible();
-		shoppingCartButton.click();
+			element(shoppingCartButton).waitUntilVisible();
+			shoppingCartButton.click();
 	}
 
 	public void clickOnHeaderUserNameButton(String usernameLabel) {
@@ -61,7 +60,7 @@ public class MyJurionPage extends AbstractPage{
 		}
 	}
 
-	public void verifyThaShoppingCartIsEmpty() {
+	public void verifyTheShoppingCartIsEmpty() {
 		element(headerContainer).waitUntilVisible();
 		WebElement cart = headerContainer.findElement(By
 				.cssSelector("li#shopping-cart"));

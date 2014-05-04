@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import de.jurion.tools.AbstractPage;
 
 public class CartPage extends AbstractPage{
@@ -61,10 +62,11 @@ public class CartPage extends AbstractPage{
 	}
 
 	public void verifyBookTitleAndPrice(List<String> list, String price) {
+
+		waitForTextToAppear(price);
 		element(productsListConatiner).waitUntilPresent();
 		String title = list.toString();
-		waitForTextToAppear(price);
-
+		
 		title = title.substring(title.indexOf(',') + 1, title.length());
 		
 		WebElement tit = bookRowConatiner.findElement(By
@@ -78,21 +80,24 @@ public class CartPage extends AbstractPage{
 		Assert.assertTrue(
 				"The price is not the expected one : " + pr.getText(),
 				(pr.getText()).contains(price));
-
+	
 	}
 
 	public void verifyMagazineTitleAndPrice(List<String> list, String price) {
-		element(productsListConatiner).waitUntilPresent();
-		String title = list.toString();
-		title= title.substring(0,title.indexOf('\n')+1);
-		WebElement tit = magazineRowConatiner.findElement(By
-				.cssSelector("div[class*='title']"));
-		WebElement pr = magazineRowConatiner.findElement(By
-				.cssSelector("span[class='price-amount-value']"));
-		Assert.assertTrue("The title is not the expected one : " + tit.getText(),
-				tit.getText().contains(title));
-		Assert.assertTrue("The price is not the expected one : " + pr.getText(),
-				(pr.getText()).contains(price));
+
+			waitForTextToAppear(price);
+			element(productsListConatiner).waitUntilPresent();
+			String title = list.toString();
+			title= title.substring(0,title.indexOf('\n')+1);
+			WebElement tit = magazineRowConatiner.findElement(By
+					.cssSelector("div[class*='title']"));
+			WebElement pr = magazineRowConatiner.findElement(By
+					.cssSelector("span[class='price-amount-value']"));
+			Assert.assertTrue("The title is not the expected one : " + tit.getText(),
+					tit.getText().contains(title));
+			Assert.assertTrue("The price is not the expected one : " + pr.getText(),
+					(pr.getText()).contains(price));
+
 	}
 
 	public void removeBookFromCart(List<String> list) {

@@ -1,10 +1,5 @@
 package de.jurion.steps;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.internal.ProfilesIni;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.pages.Pages;
@@ -26,10 +21,6 @@ public class HomeSteps extends AbstractSteps {
     @Step
     public void openHomePage() {
         homePage().openHomePage();
-//        ProfilesIni profile = new ProfilesIni();
-//        FirefoxProfile myprofile = profile.getProfile("myFirefoxProfile");
-//        WebDriver driver = new FirefoxDriver(myprofile);
-//        driver.get("http://staging.jurion.de");
     }
     
     @StepGroup

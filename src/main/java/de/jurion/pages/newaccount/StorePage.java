@@ -9,7 +9,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.seleniumhq.jetty7.util.log.Log;
 
 import de.jurion.tools.AbstractPage;
 import de.jurion.tools.CustomerLabels;
@@ -109,7 +108,7 @@ public List<String> getResultsList(String subject) {
 				list.contains(titleContainer.getText()));
 	}
 
-	public void addtoChart(List<String> list) {
+	public void addtoCart(List<String> list) {
 		element(buyButton).waitUntilVisible();
 		if(list.contains(titleContainer.getText()))
 		buyButton.click();

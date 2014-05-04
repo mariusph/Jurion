@@ -8,7 +8,6 @@ import net.thucydides.junit.annotations.Qualifier;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
-import org.hamcrest.text.pattern.Parse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -32,18 +31,12 @@ import de.jurion.tools.CustomerLabels;
 public class CustomerAddAndRemoveFromCartTest extends BaseTest {
 
     private String subject;
-    private String firstname;
-    private String lastname;
-    private String address;
-    private String plz;
-    private String city;
     private String email;
-    private String phone;
     private String password;
     
     @Qualifier
 	public String getQualifier(){
-		return email +" "+ firstname;
+		return email;
 	}
 
     public void setSuject(String subject) {
@@ -54,41 +47,6 @@ public class CustomerAddAndRemoveFromCartTest extends BaseTest {
         return subject;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getPlz() {
-        return plz;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setPlz(String plz) {
-        this.plz = plz;
-    }
-
-    public String getCity() {
-        return city;
-    }
 
     public String getEmail() {
         return email;
@@ -98,24 +56,12 @@ public class CustomerAddAndRemoveFromCartTest extends BaseTest {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     @Steps
@@ -143,7 +89,7 @@ public class CustomerAddAndRemoveFromCartTest extends BaseTest {
     public CartSteps cartSteps;
 
     @Test
-    public void customerLoginAndAddToCart() {
+    public void customeAddAndRemoveFromCart() {
 
         homeSteps.openHomePage();
       
@@ -171,7 +117,7 @@ public class CustomerAddAndRemoveFromCartTest extends BaseTest {
         
         // add the book to chart
         String price1 = storeSteps.getThePrice();
-        storeSteps.addToChart(list1);
+        storeSteps.addToCart(list1);
         
         // go in the Store
         myJurionSteps.clickOnHeaderButton(CustomerLabels.SHOP_LABEL);
@@ -195,7 +141,7 @@ public class CustomerAddAndRemoveFromCartTest extends BaseTest {
         
         // add the magazine to chart
         String price2 = storeSteps.getThePrice();
-        storeSteps.addToChart(list2);
+        storeSteps.addToCart(list2);
         
         // click on Shopping Cart
         myJurionSteps.clickOnShoppingCart();
@@ -228,7 +174,7 @@ public class CustomerAddAndRemoveFromCartTest extends BaseTest {
        //remove the magazine from the cart
         cartSteps.removeMagazineFromCart(list2);
         // verify that the cart is empty
-        myJurionSteps.verifyThaShoppingCartIsEmpty();
+        myJurionSteps.verifyTheShoppingCartIsEmpty();
         
     }
 

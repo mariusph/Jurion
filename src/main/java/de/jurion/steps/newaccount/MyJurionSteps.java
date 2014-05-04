@@ -32,8 +32,8 @@ public class MyJurionSteps extends AbstractSteps{
 	}
     
 	@Step
-	public void verifyThaShoppingCartIsEmpty() {
-		myJurionPage().verifyThaShoppingCartIsEmpty();
+	public void verifyTheShoppingCartIsEmpty() {
+		myJurionPage().verifyTheShoppingCartIsEmpty();
 	}
 
 }

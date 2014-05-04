@@ -1,8 +1,5 @@
 package de.jurion.test;
 
-import java.util.List;
-
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.junit.annotations.Qualifier;
@@ -12,14 +9,11 @@ import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import de.jurion.requirements.Application;
 import de.jurion.steps.HomeSteps;
 import de.jurion.steps.newaccount.BestatigenSteps;
 import de.jurion.steps.newaccount.LoginDatenSteps;
-import de.jurion.steps.newaccount.PersonlicheDatenSteps;
 import de.jurion.steps.newaccount.RegisterSteps;
 import de.jurion.steps.newaccount.RegistrierungStartenSteps;
 import de.jurion.tools.ConfigFileLibrary;

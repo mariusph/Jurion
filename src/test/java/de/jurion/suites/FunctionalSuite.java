@@ -4,7 +4,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import de.jurion.test.CreateAccountModelTest;
 import de.jurion.test.CreateAccountTest;
 import de.jurion.test.CustomerAddAndRemoveFromCartTest;
 

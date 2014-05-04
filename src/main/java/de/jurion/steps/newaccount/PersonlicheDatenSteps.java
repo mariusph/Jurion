@@ -3,9 +3,7 @@ package de.jurion.steps.newaccount;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.pages.Pages;
-import de.jurion.model.CustomerModel;
 import de.jurion.tools.AbstractSteps;
-import de.jurion.tools.CustomerLabels;
 
 public class PersonlicheDatenSteps extends AbstractSteps {
 

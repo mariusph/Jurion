@@ -7,6 +7,9 @@ public class Application {
     public class User {
         public class CreateUser {
         }
+        public class VerifyErrorMessages{
+        	
+        }
     }
     
     @Feature

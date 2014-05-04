@@ -9,6 +9,7 @@ import de.jurion.pages.newaccount.LoginDatenPage;
 import de.jurion.pages.newaccount.MyJurionPage;
 import de.jurion.pages.newaccount.PersonlicheDatenPage;
 import de.jurion.pages.newaccount.RegisterPage;
+import de.jurion.pages.newaccount.RegistrationConfirmationPage;
 import de.jurion.pages.newaccount.RegistrierungStartenPage;
 import de.jurion.pages.newaccount.StorePage;
 
@@ -54,6 +55,10 @@ public class AbstractSteps extends ScenarioSteps {
     
     public CartPage cartPage(){
     	return getPages().currentPageAt(CartPage.class);
+    }
+    
+    public RegistrationConfirmationPage registrationConfirmationPage(){
+    	return getPages().currentPageAt(RegistrationConfirmationPage.class);
     }
 
 }

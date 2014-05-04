@@ -28,5 +28,13 @@ public class CustomerLabels {
 	public static final String USERNAME_LABEL = "Marius Pojar";
 	public static final String LOGOUT = "Abmelden";
 	
+	public static final String REGISTRATION_MESSAGE= "Ihre Registrierung war erfolgreich.";
+	
+	// Erorr messages
+	public static final String FIRSTNAME_ERROR_MESSAGE = "Bitte geben Sie Ihren Vornamen ein.";
+	public static final String LASTNAME_ERROR_MESSAGE = "Bitte geben Sie Ihren Nachnamen ein.";
+	public static final String EMAIL_ERROR_MESSAGE= "Prüfen Sie bitte, ob Sie das E-Mail-Format name@domain (z.B. email@beispiel.de) verwendet haben.";
+	public static final String PASSWORD_ERROR_MESSAGE= "Bitte geben Sie ein Passwort ein.";
+	
 	
 }

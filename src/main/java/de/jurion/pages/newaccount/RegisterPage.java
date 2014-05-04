@@ -2,6 +2,8 @@ package de.jurion.pages.newaccount;
 
 import net.thucydides.core.annotations.findby.FindBy;
 
+import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -49,6 +51,18 @@ public class RegisterPage extends AbstractPage{
 
 	@FindBy(css = "input#submit")
 	private WebElement registerButton;
+	
+	@FindBy(id = "error-firstname")
+	private WebElement firstnameErrorContainer;
+	
+	@FindBy(id = "error-lastname")
+	private WebElement lastnameErrorContainer;
+	
+	@FindBy(id = "error-email")
+	private WebElement emailErrorContainer;
+	
+	@FindBy(id = "error-password")
+	private WebElement passwordErrorContainer;
 
 	     // needs refactoringgg
 	    public void selectFromAnredeCheckbox(String gender) {
@@ -75,27 +89,36 @@ public class RegisterPage extends AbstractPage{
 
 	    public void fillVorname(String firstname) {
 	        element(vornameInput).waitUntilVisible();
+	        vornameInput.clear();
 	        vornameInput.sendKeys(firstname);
 	    }
 
 	    public void fillNachName(String lastname) {
 	        element(nachnameInput).waitUntilVisible();
+	        nachnameInput.clear();
 	        nachnameInput.sendKeys(lastname);
 	    }
 	    
 	    public void fillUsernameInput(String email) {
 			element(nutznameInput).waitUntilVisible();
+			nutznameInput.clear();
 			nutznameInput.sendKeys(email);
 		}
 
 		public void fillPasswordInput(String password) {
 			element(passwortInput).waitUntilVisible();
+			passwortInput.clear();
 			passwortInput.sendKeys(password);
 		}
 
 		public void tickAcceptTermsCheckbox() {
 			element(firstCheckbox).waitUntilVisible();
-			firstCheckbox.click();
+			if(firstCheckbox.getText().contains("c")){
+				firstCheckbox.click();
+			}
+			else{
+				System.out.println("Accept Terms heckbox has been already ticked");
+			}
 		}
 
 		public void tickAcceptNewsletterCheckbox() {
@@ -112,6 +135,46 @@ public class RegisterPage extends AbstractPage{
 			element(registerButton).waitUntilVisible();
 			registerButton.click();
 		}
+
+	public void verifyFirstNameErrorMessage(String firstnameErrorMessage) {
+		element(firstnameErrorContainer).waitUntilVisible();
+		Assert.assertTrue("! The firstname error message is different "
+				+ firstnameErrorContainer.getText(), firstnameErrorContainer
+				.getText().equals(firstnameErrorMessage));
+	}
+
+	public void verifyLastNameErrorMessage(String lastnameErrorMessage) {
+		element(lastnameErrorContainer).waitUntilVisible();
+		Assert.assertTrue("! The lastname error message is different "
+				+ lastnameErrorContainer.getText(), lastnameErrorContainer
+				.getText().equals(lastnameErrorMessage));
+	}
+
+	public void verifyEmailErrorMessage(String emailErrorMessage) {
+		element(emailErrorContainer).waitUntilVisible();
+		Assert.assertTrue("! The email error message is different "
+				+ emailErrorContainer.getText(), emailErrorContainer
+				.getText().equals(emailErrorMessage));
+	}
+	
+	public void getComputedStyle(){
+		String js= "return window.document.defaultView.getComputedStyle(" +
+                    "window.document.getElementById('error-email'))";
+		String jsHeight = js+".getPropertyValue('height')";
+        String jswidth = js+".getPropertyValue('width')";
+        
+        JavascriptExecutor jsexecuter = (JavascriptExecutor) getDriver();
+        String height = (String) jsexecuter.executeScript(jsHeight);
+        String width = (String) jsexecuter.executeScript(jswidth);
+        System.out.println("This is the elem position : " + width+" X "+height);
+	}
+
+	public void verifyPasswordErrorMessage(String passwordErrorMessage) {
+		element(passwordErrorContainer).waitUntilVisible();
+		Assert.assertTrue("! The password error message is different "
+				+ passwordErrorContainer.getText(), passwordErrorContainer
+				.getText().equals(passwordErrorMessage));
+	}
 
 
 

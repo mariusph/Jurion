@@ -84,5 +84,30 @@ public class RegisterSteps extends AbstractSteps{
 	public void clickOnRegisterButton() {
 		registerPage().clickOnRegisterButton();
 	}
+    
+	@Step
+	public void verifyFirstNameErrorMessage(String firstnameErrorMessage) {
+		registerPage().verifyFirstNameErrorMessage(firstnameErrorMessage);
+	}
+    
+	@Step
+	public void verifyLastNameErrorMessage(String lastnameErrorMessage) {
+		registerPage().verifyLastNameErrorMessage(lastnameErrorMessage);
+	}
+    
+	@Step
+	public void verifyEmailErrorMessage(String emailErrorMessage) {
+		registerPage().verifyEmailErrorMessage(emailErrorMessage);
+	}
+	@Step
+	public void getComputedStyle(){
+		registerPage().getComputedStyle();
+		
+	}
+    
+	@Step
+	public void verifyPasswordErrorMessage(String passwordErrorMessage) {
+		registerPage().verifyPasswordErrorMessage(passwordErrorMessage);
+	}
 
 }

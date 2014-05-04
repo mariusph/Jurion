@@ -89,7 +89,7 @@ public class CustomerAddAndRemoveFromCartTest extends BaseTest {
     public CartSteps cartSteps;
 
     @Test
-    public void customeAddAndRemoveFromCart() {
+    public void customerAddAndRemoveFromCart() {
 
         homeSteps.openHomePage();
       

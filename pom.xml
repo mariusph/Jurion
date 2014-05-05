@@ -13,11 +13,11 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<thucydides.version>0.9.212</thucydides.version>
+		<thucydides.version>0.9.238</thucydides.version>
 		<surefire.version>2.15</surefire.version>
 		<junit.version>4.11</junit.version>
 		<maven-surefire.plugin>2.7.1</maven-surefire.plugin>
-		<selenium.version>2.40.0</selenium.version>
+		<selenium.version>2.41.0</selenium.version>
 		<sonar.language>java</sonar.language>
 	</properties>
 

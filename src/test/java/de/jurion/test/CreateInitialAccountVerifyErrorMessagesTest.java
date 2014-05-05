@@ -109,9 +109,10 @@ public class CreateInitialAccountVerifyErrorMessagesTest extends BaseTest {
         registerSteps.getComputedStyle();
         
         // check the password error message
+        String password2= "";
         registerSteps.fillRegisterDataForm(CustomerLabels.GENDER_MALE,
                 CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname,
-                email, null);
+                email, password2);
         registerSteps.verifyPasswordErrorMessage(CustomerLabels.PASSWORD_ERROR_MESSAGE);
        
     }

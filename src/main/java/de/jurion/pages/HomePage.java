@@ -32,11 +32,10 @@ public class HomePage extends AbstractPage {
     private WebElement passwortImput;
     
 
-    public void clickOnRegistrierenButton() {
-        element(registrierenLink).waitUntilPresent();
-      
-       registrierenLink.click();
-    }
+	public void clickOnRegistrierenButton() {
+		element(registrierenLink).waitUntilPresent();
+		registrierenLink.click();
+	}
 
 	public void fillUserNameInput(String email) {
 		 element(nutznameImput).waitUntilVisible();

@@ -35,6 +35,23 @@ public class RegisterSteps extends AbstractSteps{
 
 	    }
 	 
+	 @StepGroup
+	    public void fillRegisterDataFormWithoutAcceptingTerms(String gender,
+	            String academicTitle, String firstname, String lastname,
+	            String email, String password) {
+	        selectFromAnredeCheckbox(gender);
+	        selectAcademicTitleDropdown(academicTitle);
+	        fillVorname(firstname);
+	        fillNachName(lastname);
+	        fillUsernameInput(email);
+	        fillPasswordInput(password);
+	        untickAcceptTermsCheckbox();
+	        tickAcceptNewsletterCheckbox();
+	        tickDataProtectionCheckbox();
+	        clickOnRegisterButton();
+
+	    }
+	 
 	@Step
 	public void selectFromAnredeCheckbox(String gender) {
 		registerPage().selectFromAnredeCheckbox(gender);
@@ -69,6 +86,11 @@ public class RegisterSteps extends AbstractSteps{
 	public void tickAcceptTermsCheckbox() {
 		registerPage().tickAcceptTermsCheckbox();
 	}
+	
+	@Step
+	public void untickAcceptTermsCheckbox() {
+		registerPage().untickAcceptTermsCheckbox();
+	}
 
 	@Step
 	public void tickAcceptNewsletterCheckbox() {
@@ -100,14 +122,24 @@ public class RegisterSteps extends AbstractSteps{
 		registerPage().verifyEmailErrorMessage(emailErrorMessage);
 	}
 	@Step
-	public void getComputedStyle(){
-		registerPage().getComputedStyle();
+	public String getComputedStyle(String passwordErrorId){
+		return registerPage().getComputedStyle(passwordErrorId);
 		
+	}
+	
+	@Step
+	public void verifyElementPosition(String elemID, String position){
+		registerPage().verifyElementPosition(elemID, position);
 	}
     
 	@Step
 	public void verifyPasswordErrorMessage(String passwordErrorMessage) {
 		registerPage().verifyPasswordErrorMessage(passwordErrorMessage);
+	}
+    
+	@Step
+	public void verifyAcceptTermsErrorMessage(String termsErrorMessage) {
+		registerPage().verifyAcceptTermsErrorMessage(termsErrorMessage);
 	}
 
 }

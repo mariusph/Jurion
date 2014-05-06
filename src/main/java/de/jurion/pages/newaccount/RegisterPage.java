@@ -63,23 +63,16 @@ public class RegisterPage extends AbstractPage{
 	
 	@FindBy(id = "error-password")
 	private WebElement passwordErrorContainer;
+	
+	@FindBy(id = "error-confirm_terms")
+	private WebElement acceptTermsErrorContainer;
 
 	     // needs refactoringgg
 	    public void selectFromAnredeCheckbox(String gender) {
 	        element(genderCheckboxContainer).waitUntilVisible();
-//	        if(gender==CustomerLabels.GENDER_MALE)
-	        System.out.println("XXX : "+genderCheckboxContainer.getText());
 	        elementFocus("div#gender-elem input#gender-1");
-	        System.out.println("Is focused indeeed !!!");
 	        elementjQueryClick("div#gender-elem input#gender-1");
-//	        	List<WebElement> elems = genderCheckboxContainer.findElements(By.cssSelector("span.radio"));
-//	        	for(WebElement elem:elems){
-//	        	if(elem.getText().contains(gender)){
-//	        		elem.click();
-//	        	}	
-//	        	}
-//	        else if(gender==CustomerLabels.GENDER_MALE)
-//	        	genderCheckboxContainer.findElement(By.cssSelector("input#gender-2")).click();
+
 	    }
 
 	    public void selectAcademicTitleDropdown(String academicTitle) {
@@ -120,6 +113,16 @@ public class RegisterPage extends AbstractPage{
 				System.out.println("Accept Terms heckbox has been already ticked");
 			}
 		}
+		
+		public void untickAcceptTermsCheckbox() {
+			element(firstCheckbox).waitUntilVisible();
+			if(firstCheckbox.getText().contains("C")){
+				firstCheckbox.click();
+			}
+			else{
+				System.out.println("Accept Terms heckbox has been already unticked");
+			}
+		}
 
 		public void tickAcceptNewsletterCheckbox() {
 			element(secondCheckbox).waitUntilVisible();
@@ -157,16 +160,48 @@ public class RegisterPage extends AbstractPage{
 				.getText().equals(emailErrorMessage));
 	}
 	
-	public void getComputedStyle(){
+	public String getComputedStyle(String elemID){
 		String js= "return window.document.defaultView.getComputedStyle(" +
-                    "window.document.getElementById('error-email'))";
+                    "window.document.getElementById('" + elemID + "'))";
 		String jsHeight = js+".getPropertyValue('height')";
         String jswidth = js+".getPropertyValue('width')";
         
         JavascriptExecutor jsexecuter = (JavascriptExecutor) getDriver();
         String height = (String) jsexecuter.executeScript(jsHeight);
         String width = (String) jsexecuter.executeScript(jswidth);
-        System.out.println("This is the elem position : " + width+" X "+height);
+        System.out.println("### ### "+width+" X "+height);
+        if(width.contains(".") && height.contains(".") ){
+            String subWidth= width.substring(width.indexOf("."), width.indexOf("p"));
+            System.out.println("### ### "+subWidth);
+        	width=width.replace(subWidth, "");
+        	System.out.println("### ### "+width);
+            String subHeight = height.substring(height.indexOf("."), height.indexOf("p"));
+            System.out.println("### ### "+subHeight);
+            height=height.replace(subHeight,"");
+            System.out.println("### ### "+height);
+			System.out.println("%Truncated % "+width+" X "+height);
+        }
+        else if(width.contains(".")){
+        	String subWidth= width.substring(width.indexOf("."), width.indexOf("p"));
+            System.out.println("### ### "+subWidth);
+        	width=width.replace(subWidth, "");
+        	System.out.println("### ### "+width);
+        }
+        else if(height.contains(".")){
+        	 String subHeight = height.substring(height.indexOf("."), height.indexOf("p"));
+             System.out.println("### ### "+subHeight);
+             height=height.replace(subHeight,"");
+             System.out.println("### ### "+height);
+ 			System.out.println("%Truncated % "+width+" X "+height);
+        }
+       
+        return width+" X "+height;
+	}
+	
+	public void verifyElementPosition(String elemID, String position) {
+			Assert.assertTrue("This isn't the expected position : "
+					+ getComputedStyle(elemID),
+					position.equals(getComputedStyle(elemID)));
 	}
 
 	public void verifyPasswordErrorMessage(String passwordErrorMessage) {
@@ -174,6 +209,13 @@ public class RegisterPage extends AbstractPage{
 		Assert.assertTrue("! The password error message is different "
 				+ passwordErrorContainer.getText(), passwordErrorContainer
 				.getText().equals(passwordErrorMessage));
+	}
+
+	public void verifyAcceptTermsErrorMessage(String termsErrorMessage) {
+		element(acceptTermsErrorContainer).waitUntilVisible();
+		Assert.assertTrue("! The accept terms error message is different "
+				+ acceptTermsErrorContainer.getText(), acceptTermsErrorContainer
+				.getText().equals(termsErrorMessage));
 	}
 
 

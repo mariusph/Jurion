@@ -35,6 +35,7 @@ public class CustomerLabels {
 	public static final String LASTNAME_ERROR_MESSAGE = "Bitte geben Sie Ihren Nachnamen ein.";
 	public static final String EMAIL_ERROR_MESSAGE= "Prüfen Sie bitte, ob Sie das E-Mail-Format name@domain (z.B. email@beispiel.de) verwendet haben.";
 	public static final String PASSWORD_ERROR_MESSAGE= "Bitte geben Sie ein Passwort ein.";
+	public static final String TERMS_ERROR_MESSAGE = "Bitte bestätigen Sie, dass Sie unsere AGBs gelesen haben und mit ihnen einverstanden sind.";
 	
 	
 }

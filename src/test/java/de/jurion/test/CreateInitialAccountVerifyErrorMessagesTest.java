@@ -18,6 +18,14 @@ import de.jurion.tools.ConfigFileLibrary;
 import de.jurion.tools.Constants;
 import de.jurion.tools.CustomerLabels;
 
+/********************************
+ * Create a new account
+ * Checks that leaving empty the compulsory fields will
+ * popup expected error messages
+ * Checks the position for each error message
+ ********************************
+*/
+
 @Story(Application.User.CreateUser.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom(value = Constants.TESTDATA_FILES_PATH
@@ -92,21 +100,36 @@ public class CreateInitialAccountVerifyErrorMessagesTest extends BaseTest {
                 CustomerLabels.ACADEMIC_PROF_DR, firstname1, lastname,
                 email, password);
         registerSteps.verifyFirstNameErrorMessage(CustomerLabels.FIRSTNAME_ERROR_MESSAGE);
-      
+        
+        //BUG : actually the width is '231px'!!
+//        String firstnameErrorId = "error-firstname";
+//        String position = "239px"+" X "+"19px";
+//        registerSteps.getComputedStyle(firstnameErrorId);
+//        registerSteps.verifyElementPosition(firstnameErrorId, position);
+        
         // check the lastname error message
         String lastname2= "";
         registerSteps.fillRegisterDataForm(CustomerLabels.GENDER_MALE,
                 CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname2,
                 email, password);
         registerSteps.verifyLastNameErrorMessage(CustomerLabels.LASTNAME_ERROR_MESSAGE);
-      
+        
+        String lastnameErrorId = "error-lastname";
+        String position1 = "589px"+" X "+"19px";
+        registerSteps.getComputedStyle(lastnameErrorId);
+        registerSteps.verifyElementPosition(lastnameErrorId, position1);
+        
         // check the username error message
         String email2= email.replace("@", "");
         registerSteps.fillRegisterDataForm(CustomerLabels.GENDER_MALE,
                 CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname,
                 email2, password);
         registerSteps.verifyEmailErrorMessage(CustomerLabels.EMAIL_ERROR_MESSAGE);
-        registerSteps.getComputedStyle();
+        
+        String emailErrorId = "error-email";
+        String position2 = "589px"+" X "+"38px";
+        registerSteps.getComputedStyle(emailErrorId);
+        registerSteps.verifyElementPosition(emailErrorId, position2);
         
         // check the password error message
         String password2= "";
@@ -115,6 +138,22 @@ public class CreateInitialAccountVerifyErrorMessagesTest extends BaseTest {
                 email, password2);
         registerSteps.verifyPasswordErrorMessage(CustomerLabels.PASSWORD_ERROR_MESSAGE);
        
+        String passwordErrorId = "error-password";
+        String position3 = "589px"+" X "+"19px";
+        registerSteps.getComputedStyle(passwordErrorId);
+        registerSteps.verifyElementPosition(passwordErrorId, position3);
+        
+        // check terms condition error message
+        registerSteps.fillRegisterDataFormWithoutAcceptingTerms(CustomerLabels.GENDER_MALE,
+                CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname,
+                email, password);
+        registerSteps.verifyAcceptTermsErrorMessage(CustomerLabels.TERMS_ERROR_MESSAGE);
+      
+        String termsErrorId = "error-confirm_terms";
+        String position4 = "589px"+" X "+"46px";
+        registerSteps.getComputedStyle(termsErrorId);
+        registerSteps.verifyElementPosition(termsErrorId, position4);
+        
     }
 
 }

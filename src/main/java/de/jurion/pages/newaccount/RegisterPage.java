@@ -164,35 +164,25 @@ public class RegisterPage extends AbstractPage{
 		String js= "return window.document.defaultView.getComputedStyle(" +
                     "window.document.getElementById('" + elemID + "'))";
 		String jsHeight = js+".getPropertyValue('height')";
-        String jswidth = js+".getPropertyValue('width')";
+        String jsWidth = js+".getPropertyValue('width')";
         
         JavascriptExecutor jsexecuter = (JavascriptExecutor) getDriver();
         String height = (String) jsexecuter.executeScript(jsHeight);
-        String width = (String) jsexecuter.executeScript(jswidth);
-        System.out.println("### ### "+width+" X "+height);
+        String width = (String) jsexecuter.executeScript(jsWidth);
+//        System.out.println("### ### "+width+" X "+jsHeight);
         if(width.contains(".") && height.contains(".") ){
             String subWidth= width.substring(width.indexOf("."), width.indexOf("p"));
-            System.out.println("### ### "+subWidth);
         	width=width.replace(subWidth, "");
-        	System.out.println("### ### "+width);
             String subHeight = height.substring(height.indexOf("."), height.indexOf("p"));
-            System.out.println("### ### "+subHeight);
             height=height.replace(subHeight,"");
-            System.out.println("### ### "+height);
-			System.out.println("%Truncated % "+width+" X "+height);
         }
         else if(width.contains(".")){
         	String subWidth= width.substring(width.indexOf("."), width.indexOf("p"));
-            System.out.println("### ### "+subWidth);
         	width=width.replace(subWidth, "");
-        	System.out.println("### ### "+width);
         }
         else if(height.contains(".")){
         	 String subHeight = height.substring(height.indexOf("."), height.indexOf("p"));
-             System.out.println("### ### "+subHeight);
              height=height.replace(subHeight,"");
-             System.out.println("### ### "+height);
- 			System.out.println("%Truncated % "+width+" X "+height);
         }
        
         return width+" X "+height;

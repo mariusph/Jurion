@@ -18,20 +18,23 @@ import de.jurion.tools.ConfigFileLibrary;
 import de.jurion.tools.Constants;
 import de.jurion.tools.CustomerLabels;
 
+/********************************
+ * Create a new account
+ * Fill all the input fields, checkboxes and dropdowns
+ * Register the form
+ * Checks the registering confirmation page has the expected title
+ ********************************
+*/
+
 @Story(Application.User.CreateUser.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom(value = Constants.TESTDATA_FILES_PATH
         + ConfigFileLibrary.CREATE_INITIAL_ACCOUNT, separator = Constants.CSV_SEPARATOR)
 public class CreateInitialAccountTest extends BaseTest {
 
-    private String institution;
     private String firstname;
     private String lastname;
-    private String address;
-    private String plz;
-    private String city;
     private String email;
-    private String phone;
     private String password;
     
     @Qualifier
@@ -39,28 +42,12 @@ public class CreateInitialAccountTest extends BaseTest {
 		return lastname +" "+ firstname;
 	}
 
-    public void setInstitution(String institution) {
-        this.institution = institution;
-    }
-
-    public String getInstitution() {
-        return institution;
-    }
-
     public String getFirstname() {
         return firstname;
     }
 
     public String getLastname() {
         return lastname;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getPlz() {
-        return plz;
     }
 
     public void setFirstname(String firstname) {
@@ -71,18 +58,6 @@ public class CreateInitialAccountTest extends BaseTest {
         this.lastname = lastname;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setPlz(String plz) {
-        this.plz = plz;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -91,24 +66,12 @@ public class CreateInitialAccountTest extends BaseTest {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     @Steps

@@ -20,6 +20,7 @@ import de.jurion.tools.CustomerLabels;
 
 /********************************
  * Create a new account
+ * Fill all the fields
  * Checks that leaving empty the compulsory fields will
  * popup expected error messages
  * Checks the position for each error message
@@ -101,11 +102,11 @@ public class CreateInitialAccountVerifyErrorMessagesTest extends BaseTest {
                 email, password);
         registerSteps.verifyFirstNameErrorMessage(CustomerLabels.FIRSTNAME_ERROR_MESSAGE);
         
-        //BUG : actually the width is '231px'!!
-//        String firstnameErrorId = "error-firstname";
-//        String position = "239px"+" X "+"19px";
-//        registerSteps.getComputedStyle(firstnameErrorId);
-//        registerSteps.verifyElementPosition(firstnameErrorId, position);
+        //!!!In FIREFOX  and IEXPLORER accept terms error message position : 231px X 19px
+        String firstnameErrorId = "error-firstname";
+        String position = "239px"+" X "+"19px";
+        registerSteps.getComputedStyle(firstnameErrorId);
+        registerSteps.verifyElementPosition(firstnameErrorId, position);
         
         // check the lastname error message
         String lastname2= "";
@@ -143,6 +144,7 @@ public class CreateInitialAccountVerifyErrorMessagesTest extends BaseTest {
         registerSteps.getComputedStyle(passwordErrorId);
         registerSteps.verifyElementPosition(passwordErrorId, position3);
         
+        //!!!In FIREFOX  and IEXPLORER accept terms error message position : 589px X 27px
         // check terms condition error message
         registerSteps.fillRegisterDataFormWithoutAcceptingTerms(CustomerLabels.GENDER_MALE,
                 CustomerLabels.ACADEMIC_PROF_DR, firstname, lastname,

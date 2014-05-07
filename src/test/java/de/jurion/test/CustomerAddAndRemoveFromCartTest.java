@@ -1,16 +1,13 @@
 package de.jurion.test;
 
 import java.util.List;
-
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.junit.annotations.Qualifier;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import de.jurion.requirements.Application;
 import de.jurion.steps.HomeSteps;
 import de.jurion.steps.newaccount.BestatigenSteps;
@@ -23,6 +20,21 @@ import de.jurion.steps.newaccount.StoreSteps;
 import de.jurion.tools.ConfigFileLibrary;
 import de.jurion.tools.Constants;
 import de.jurion.tools.CustomerLabels;
+
+/********************************
+ * As customer login and go to the store
+ * In the store search after a subject
+ * Pick up the first book from the results list
+ * Do another search using the same subject
+ * Pick up the first magazine from the results list
+ * Check in the Shopping Cart both items
+ * Remove the book from the Cart
+ * Logout and re-login
+ * Go in the Shopping Cart and check the only the magazine is there
+ * Remove also the magazine from the cart
+ * Check that the Shopping Cart is empty
+ ********************************
+*/
 
 @Story(Application.Customer.BuyProducts.class)
 @RunWith(ThucydidesParameterizedRunner.class)
@@ -165,7 +177,7 @@ public class CustomerAddAndRemoveFromCartTest extends BaseTest {
         // login details
         homeSteps.fillLoginDetails(email, password);
         
-     // click on Shopping Cart, check that the magazine is there
+        // click on Shopping Cart, check that the magazine is there
         myJurionSteps.clickOnShoppingCart();
         cartSteps.verifyMagazineTitleAndPrice(list2, price2);
         // verify if the book is still removed

@@ -51,9 +51,7 @@ public class HomePage extends AbstractPage {
 	}
 
 	public void clickOnLoginButton() {
-		System.out.println("Inn Innn");
 		element(anmeldenButton).waitUntilVisible();
-		System.out.println("FFFF FFF " + anmeldenButton.getText());
 		anmeldenButton.click();
 	}
 	

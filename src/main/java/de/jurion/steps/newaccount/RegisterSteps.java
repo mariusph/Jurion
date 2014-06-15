@@ -9,7 +9,6 @@ public class RegisterSteps extends AbstractSteps{
 
 	public RegisterSteps(Pages pages) {
 		super(pages);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

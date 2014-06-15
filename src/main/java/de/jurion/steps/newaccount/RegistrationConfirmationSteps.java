@@ -13,7 +13,6 @@ public class RegistrationConfirmationSteps extends AbstractSteps{
 
 	public RegistrationConfirmationSteps(Pages pages) {
 		super(pages);
-		// TODO Auto-generated constructor stub
 	}
     
 	@Step

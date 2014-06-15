@@ -12,7 +12,6 @@ public class RegistrationConfirmationPage extends AbstractPage{
 
 	public RegistrationConfirmationPage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@FindBy(id="register-title")

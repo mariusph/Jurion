@@ -40,8 +40,7 @@ public class HomePage extends AbstractPage {
 	public void fillUserNameInput(String email) {
 		 element(nutznameImput).waitUntilVisible();
 		 nutznameImput.clear();
-		 nutznameImput.sendKeys(email);
-	     
+		 nutznameImput.sendKeys(email);     
 	}
 
 	public void fillPasswordInput(String password) {

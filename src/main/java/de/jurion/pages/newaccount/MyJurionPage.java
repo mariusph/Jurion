@@ -15,7 +15,6 @@ public class MyJurionPage extends AbstractPage{
 
 	public MyJurionPage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@FindBy(id ="main-header")
@@ -40,13 +39,11 @@ public class MyJurionPage extends AbstractPage{
 		} catch (org.openqa.selenium.StaleElementReferenceException ex) {
 			System.out.println("In the catch");
 		}
-
 	}
 
 	public void clickOnShoppingCart() {
-
-			element(shoppingCartButton).waitUntilVisible();
-			shoppingCartButton.click();
+		element(shoppingCartButton).waitUntilVisible();
+		shoppingCartButton.click();
 	}
 
 	public void clickOnHeaderUserNameButton(String usernameLabel) {

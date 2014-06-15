@@ -67,7 +67,6 @@ public class RegisterPage extends AbstractPage{
 	@FindBy(id = "error-confirm_terms")
 	private WebElement acceptTermsErrorContainer;
 
-	     // needs refactoringgg
 	    public void selectFromAnredeCheckbox(String gender) {
 	        element(genderCheckboxContainer).waitUntilVisible();
 	        elementFocus("div#gender-elem input#gender-1");
@@ -169,7 +168,7 @@ public class RegisterPage extends AbstractPage{
         JavascriptExecutor jsexecuter = (JavascriptExecutor) getDriver();
         String height = (String) jsexecuter.executeScript(jsHeight);
         String width = (String) jsexecuter.executeScript(jsWidth);
-//        System.out.println("### ### "+width+" X "+jsHeight);
+
         if(width.contains(".") && height.contains(".") ){
             String subWidth= width.substring(width.indexOf("."), width.indexOf("p"));
         	width=width.replace(subWidth, "");

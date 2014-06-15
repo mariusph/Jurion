@@ -13,7 +13,6 @@ public class MyJurionSteps extends AbstractSteps{
 
 	public MyJurionSteps(Pages pages) {
 		super(pages);
-		// TODO Auto-generated constructor stub
 	}
     
 	@Step

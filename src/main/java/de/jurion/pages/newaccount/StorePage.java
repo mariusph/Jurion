@@ -65,13 +65,13 @@ public List<String> getResultsList(String subject) {
 	List<String> results = new ArrayList<String>();
 		try {
 			element(resultsListContainer).waitUntilVisible();
-			List<WebElement> list = resultsListContainer.findElements(By.cssSelector("div.product-info h3 a"));
+			List<WebElement> list = resultsListContainer.findElements(By.cssSelector("div.product-info h3:first-child"));
 			
 			for(WebElement elem : list){
-				if(elem.getText().contains(subject)){
+//				if(elem.getText().contains(subject)){
 					results.add(elem.getText());
 					System.out.println( " The title is : " + elem.getText());
-				}
+//				}
 			}
 			
 		} catch (org.openqa.selenium.StaleElementReferenceException e) {
@@ -86,14 +86,14 @@ public List<String> getResultsList(String subject) {
 		try {
 			element(resultsListContainer).waitUntilVisible();
 			List<String> results = new ArrayList<String>();
-			List<WebElement> list = resultsListContainer.findElements(By.cssSelector("div.product-info h3 a"));
+			List<WebElement> list = resultsListContainer.findElements(By.cssSelector("div.product-info h3:first-child"));
 			
 			for(WebElement elem : list){
-				if(elem.getText().contains(subject)){
+//				if(elem.getText().contains(subject)){
 					results.add(elem.getText());
 					System.out.println("The choosen title is : " + results.get(0));
 					elem.click();
-				}
+//				}
 			}
 		} catch (org.openqa.selenium.StaleElementReferenceException e) {
 			//e.printStackTrace();

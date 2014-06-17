@@ -8,7 +8,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import de.jurion.tools.Constants;
 
@@ -19,17 +21,17 @@ public class BaseTest {
 
     @ManagedPages(defaultUrl = Constants.BASE_URL)
     public Pages pages;
+    
 
     @Before
     public void first() {
-
-        
+  
         if(webdriver instanceof ChromeDriver) {
             System.out.println("chrome DRIVER");
         }else if(webdriver instanceof FirefoxDriver) {
             System.out.println("FF DRIVER");
         }
-       
+
     }
     @After
     public void closeSelenium() {
